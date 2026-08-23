@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * ROCHESTER JUNK HAULING - MAIN CONFIGURATION FILE
+ * ROCHESTER HAULING BROTHERS - MAIN CONFIGURATION FILE
  * =============================================================================
  * 
  * Edit this file to customize business name, contact info, pricing, and text.
@@ -16,18 +16,20 @@ const SITE_CONFIG = {
     name: "Rochester Hauling Brothers",
     tagline: "Residential & Commercial Junk Removal in Rochester, NY",
     shortDescription: "Family-owned and operated. We provide upfront estimates, handle all heavy lifting, and offer evening and weekend pickups throughout Monroe County.",
-    
+
     // Contact Info
     phone: "(585) 555-0199",
     phoneRaw: "5855550199",
     smsNumber: "5855550199",
-    email: "contact@rochesterhaulingbrothers.com",
-    
+
+    // YOUR ACTUAL EMAIL (This is where FormSubmit will send all quotes & photos!)
+    email: "rochesterhaulbros@gmail.com",
+
     // Service Area & Hours
     cityState: "Rochester, NY",
     serviceAreaSummary: "Serving Rochester, Greece, Brighton, Henrietta, Pittsford, Webster, Penfield, Fairport, and surrounding Monroe County towns.",
     operatingHours: "Monday – Sunday: 7:00 AM – 8:30 PM (Evening & Weekend Pickups Available)",
-    
+
     heroActionImage: "assets/images/action_shot.jpg",
 
     trustPoints: [
@@ -199,13 +201,13 @@ const SITE_CONFIG = {
   ],
 
   // ---------------------------------------------------------------------------
-  // 7. FORM SUBMISSION
+  // 7. FORM SUBMISSION (FORMSUBMIT.CO WITH 100% FREE PHOTO ATTACHMENTS)
   // ---------------------------------------------------------------------------
   form: {
-    service: "web3forms",
-    web3formsAccessKey: "a9650cae-b943-4a67-b32d-241a832f238f",
-    formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID_HERE",
-    notificationSubject: "New Quote Request - Rochester Hauling Brothers"
+    service: "formsubmit",
+    // Put the destination email address where you want to receive quotes and photos:
+    destinationEmail: "ca606fed5293c6697a97b74df5efc509",
+    notificationSubject: "New Junk Removal Quote Request - Rochester Hauling Brothers"
   }
 };
 
