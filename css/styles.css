@@ -1128,31 +1128,42 @@ button, input, select, textarea {
 .mobile-btn-text { background: var(--color-blue-900); color: white; }
 .mobile-btn-est { background: var(--color-slate-800); color: white; }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+.form-success-banner {
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.success-icon {
+  width: 28px;
+  height: 28px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
+  font-weight: bold;
+  font-size: 0.95rem;
+  flex-shrink: 0;
 }
 
-.modal-backdrop.active { opacity: 1; visibility: visible; }
-
-.modal-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  max-width: 440px;
-  width: 100%;
-  padding: 1.75rem;
-  text-align: center;
-  box-shadow: var(--shadow-overlay);
+.success-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 0.25rem;
 }
 
-.modal-h { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-.modal-p { font-size: 0.88rem; color: var(--color-slate-600); margin-bottom: 1.25rem; }
+.success-desc {
+  font-size: 0.88rem;
+  color: #047857;
+  line-height: 1.45;
+  margin: 0;
+}

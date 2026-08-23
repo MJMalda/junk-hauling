@@ -146,6 +146,17 @@
       </div>
 
       <div class="form-container-card">
+        <!-- Clean In-Place Confirmation Message (No Pop-up) -->
+        <div id="form-success-banner" class="form-success-banner" style="display: none;">
+          <div class="success-icon">✓</div>
+          <div class="success-content">
+            <div class="success-title">Quote Request Received</div>
+            <p class="success-desc">
+              Thank you, <span id="success-customer-name">there</span>. We have received your request and attached photos. We will review the details and get back to you shortly with a confirmed price.
+            </p>
+          </div>
+        </div>
+
         <div class="quote-sync-banner" id="attached-estimate-box">
           <div class="quote-sync-text" id="attached-estimate-text">
             <strong>No items selected in calculator</strong>
@@ -166,7 +177,6 @@
             <div class="upload-box" id="photo-dropzone">
               <div class="upload-title">Click or Drag Photos Here</div>
               <div class="upload-sub">Upload image files (JPG, PNG, HEIC) from your phone or computer</div>
-              <!-- FormSubmit requires name="attachment" for file delivery -->
               <input type="file" id="photo-file-input" name="attachment" class="file-input-hidden" style="display:none;" multiple accept="image/*" />
             </div>
 
@@ -403,26 +413,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- =========================================================================
-       SUCCESS MODAL
-       ========================================================================= -->
-  <div class="modal-backdrop" id="success-modal">
-    <div class="modal-card">
-      <h3 class="modal-h">Quote Request Received</h3>
-      <p class="modal-p">
-        Thank you, <span id="modal-customer-name">there</span>. We have received your request and will review your details to provide a confirmed price and schedule.
-      </p>
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <a href="tel:5855550199" class="btn btn-primary" data-config-href="tel:company.phoneRaw">
-          Call Directly: <span data-config="company.phone">(585) 555-0199</span>
-        </a>
-        <button type="button" class="btn btn-outline" id="modal-close-btn">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- =========================================================================
        MOBILE ACTION BAR

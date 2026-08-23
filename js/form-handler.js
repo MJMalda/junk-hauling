@@ -2,8 +2,8 @@
  * =============================================================================
  * ROCHESTER HAULING BROTHERS - FORM & PHOTO HANDLER (FORMSUBMIT.CO)
  * =============================================================================
- * Standard multipart form handler with automatic DataTransfer file syncing
- * for guaranteed email attachment delivery.
+ * Delivers full quote requests and photo attachments directly to your email
+ * address for 100% free with clean inline confirmation messages.
  */
 
 (function () {
@@ -20,7 +20,6 @@
     configureFormAction();
     bindDropzoneEvents();
     bindFormEvents();
-    bindModalEvents();
   }
 
   function cacheDOMElements() {
@@ -31,9 +30,8 @@
       previewGrid: document.getElementById('photo-preview-grid'),
       submitBtn: document.getElementById('form-submit-btn'),
       submitBtnText: document.getElementById('form-submit-btn-text'),
-      modalOverlay: document.getElementById('success-modal'),
-      modalCloseBtn: document.getElementById('modal-close-btn'),
-      modalCustomerName: document.getElementById('modal-customer-name')
+      successBanner: document.getElementById('form-success-banner'),
+      successCustomerName: document.getElementById('success-customer-name')
     };
   }
 
@@ -142,8 +140,10 @@
     if (!elements.form) return;
 
     elements.form.addEventListener('submit', async (e) => {
-      const name = elements.form.querySelector('[name="customer_name"]').value.trim();
-      const phone = elements.form.querySelector('[name="customer_phone"]').value.trim();
+      const nameInput = elements.form.querySelector('[name="Customer Name"]');
+      const phoneInput = elements.form.querySelector('[name="Phone Number"]');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
 
       if (!name || !phone) {
         e.preventDefault();
@@ -151,13 +151,11 @@
         return;
       }
 
-      // Ensure estimate details are populated into the hidden field
-      const estimateInput = document.getElementById('form-estimate-summary');
-      if (estimateInput && !estimateInput.value) {
-        estimateInput.value = 'No calculator items pre-selected';
+      // Guarantee quote estimate is synced right now before grabbing FormData
+      if (window.QuoteCalculator && typeof window.QuoteCalculator.syncToForm === 'function') {
+        window.QuoteCalculator.syncToForm();
       }
 
-      // Try AJAX fetch with standard FormData
       e.preventDefault();
       setSubmittingState(true);
 
@@ -169,20 +167,24 @@
       formData.set('_subject', 'New Junk Removal Quote Request - Rochester Hauling Brothers');
       formData.set('_template', 'table');
       formData.set('_captcha', 'false');
+      
+      // Explicitly tell FormSubmit the full page URL so it never truncates /junk-hauling/ in the email
+      formData.set('_url', window.location.href);
+      formData.set('_next', window.location.href);
 
       try {
-        const response = await fetch(endpoint, {
+        await fetch(endpoint, {
           method: 'POST',
           body: formData,
-          mode: 'no-cors' // Allows browser to post cross-origin multipart without CORS restriction
+          mode: 'no-cors'
         });
 
-        showSuccessModal(name);
+        displayInlineSuccess(name);
         elements.form.reset();
         if (elements.fileInput) elements.fileInput.value = '';
         renderPhotoPreviews();
       } catch (err) {
-        console.warn('Fetch submission notice, submitting natively:', err);
+        console.warn('Fetch notice, submitting natively:', err);
         elements.form.submit();
       } finally {
         setSubmittingState(false);
@@ -202,31 +204,13 @@
     }
   }
 
-  function showSuccessModal(customerName) {
-    if (elements.modalCustomerName) {
-      elements.modalCustomerName.textContent = customerName || 'there';
+  function displayInlineSuccess(customerName) {
+    if (elements.successCustomerName) {
+      elements.successCustomerName.textContent = customerName || 'there';
     }
-    if (elements.modalOverlay) {
-      elements.modalOverlay.classList.add('active');
-    }
-  }
-
-  function hideSuccessModal() {
-    if (elements.modalOverlay) {
-      elements.modalOverlay.classList.remove('active');
-    }
-  }
-
-  function bindModalEvents() {
-    if (elements.modalCloseBtn) {
-      elements.modalCloseBtn.addEventListener('click', hideSuccessModal);
-    }
-    if (elements.modalOverlay) {
-      elements.modalOverlay.addEventListener('click', (e) => {
-        if (e.target === elements.modalOverlay) {
-          hideSuccessModal();
-        }
-      });
+    if (elements.successBanner) {
+      elements.successBanner.style.display = 'flex';
+      elements.successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
