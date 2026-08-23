@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Local, family-operated junk removal and hauling in Rochester, NY. Upfront estimates, evening and weekend pickups, and fast service throughout Monroe County." />
+  <meta name="keywords" content="junk removal Rochester NY, junk hauling Monroe County, furniture pickup Rochester, garage cleanout Rochester NY" />
+  <title>Rochester Hauling Brothers | Junk Removal in Rochester, NY</title>
+  
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="nav-brand">
+        <span class="nav-company-name" data-config="company.name">Rochester Hauling Brothers</span>
+        <span class="nav-company-sub" data-config="company.cityState">Rochester, NY</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#calculator-section" class="nav-link">Price Estimator</a></li>
+          <li><a href="#quote-form-section" class="nav-link">Request Quote</a></li>
+          <li><a href="#about-section" class="nav-link">About Us</a></li>
+          <li><a href="#what-we-take-section" class="nav-link">What We Take</a></li>
+          <li><a href="#faq-section" class="nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:5855550199" class="nav-phone" data-config-href="tel:company.phoneRaw">
+          <span data-config="company.phone">(585) 555-0199</span>
+        </a>
+        <a href="#calculator-section" class="btn btn-primary btn-sm">Get Estimate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION WITH ACTION BACKGROUND
+       ========================================================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="hero-tag">Family-Owned • Rochester, NY</div>
+        <h1 class="hero-title">
+          Reliable Junk Removal & Hauling in Greater Rochester
+        </h1>
+        <p class="hero-description" data-config="company.shortDescription">
+          Family-owned and operated. We provide upfront estimates, handle all heavy lifting, and offer evening and weekend pickups throughout Monroe County.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#calculator-section" class="btn btn-accent btn-lg">
+            Calculate Estimate
+          </a>
+          <a href="tel:5855550199" class="btn btn-outline-white btn-lg" data-config-href="tel:company.phoneRaw">
+            Call <span data-config="company.phone">(585) 555-0199</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-row" id="hero-trust-row">
+          <!-- Populated from config.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ESTIMATOR SECTION (CLEAN UTILITY STYLE)
+       ========================================================================= -->
+  <section class="section section-alt" id="calculator-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Online Price Estimator</h2>
+        <p class="section-subtitle">
+          Select items from the list below and indicate access conditions to view an estimated price range.
+        </p>
+      </div>
+
+      <div class="estimator-card">
+        <div class="estimator-header">
+          <div class="estimator-title">Step 1: Select Items for Removal</div>
+          <div class="estimator-subtitle">Choose furniture, appliances, or household items to add to your estimate.</div>
+        </div>
+
+        <div class="estimator-body">
+          <div class="item-select-bar">
+            <select id="calc-item-select" class="select-input">
+              <option value="" disabled selected>-- Select an item to add (e.g. Sofa, Refrigerator, Mattress) --</option>
+            </select>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="number" id="calc-item-qty" class="qty-input" value="1" min="1" max="20" title="Quantity" />
+              <button type="button" class="btn btn-primary" id="calc-btn-add-item">
+                Add Item
+              </button>
+            </div>
+          </div>
+
+          <div class="selected-items-area" id="calc-selected-items-list">
+            <!-- Populated via quote-calculator.js -->
+          </div>
+
+          <div class="terrain-section">
+            <div class="terrain-title">Step 2: Access & Difficulty Factors</div>
+            <div class="terrain-sub">Check any conditions that apply to this pickup:</div>
+            
+            <div class="terrain-grid" id="calc-terrain-grid">
+              <!-- Populated via quote-calculator.js -->
+            </div>
+          </div>
+        </div>
+
+        <div class="estimator-footer">
+          <div>
+            <div class="est-price-label">Estimated Price Range</div>
+            <div class="est-price-val" id="calc-price-display">
+              $0 <span style="font-size: 0.9rem; color: #94a3b8; font-weight: normal;">(Add items above)</span>
+            </div>
+            <div class="est-price-note" id="calc-estimate-hint">Add items above to see an estimated price range.</div>
+          </div>
+
+          <button type="button" class="btn btn-accent btn-lg" id="calc-btn-proceed">
+            Attach Photos & Request Quote
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       PHOTO UPLOAD & DIRECT QUOTE FORM
+       ========================================================================= -->
+  <section class="section" id="quote-form-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Request a Firm Quote</h2>
+        <p class="section-subtitle">
+          Send us your contact information and attach a few photos of the items. We will review them and send you a confirmed price.
+        </p>
+      </div>
+
+      <div class="form-container-card">
+        <div class="quote-sync-banner" id="attached-estimate-box">
+          <div class="quote-sync-text" id="attached-estimate-text">
+            <strong>No items selected in calculator</strong>
+            <span>You can still request a quote or attach photos below.</span>
+          </div>
+          <a href="#calculator-section" class="btn btn-outline btn-sm">Edit Items</a>
+        </div>
+
+        <form id="quote-request-form">
+          <input type="hidden" id="form-estimate-summary" name="estimate_summary" value="" />
+
+          <div class="field-group" style="margin-bottom: 1rem;">
+            <label class="field-label">Photos of Items (Optional, recommended for accurate quote):</label>
+            <div class="upload-box" id="photo-dropzone">
+              <div class="upload-title">Click or Drag Photos Here</div>
+              <div class="upload-sub">Upload image files (JPG, PNG, HEIC) from your phone or computer</div>
+              <input type="file" id="photo-file-input" class="file-input-hidden" style="display:none;" multiple accept="image/*" />
+            </div>
+
+            <div class="photo-preview-grid" id="photo-preview-grid" style="display: none;"></div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="field-group">
+              <label class="field-label" for="customer-name">Full Name *</label>
+              <input type="text" id="customer-name" name="customer_name" class="field-input" placeholder="Your name" required />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="customer-phone">Phone Number *</label>
+              <input type="tel" id="customer-phone" name="customer_phone" class="field-input" placeholder="(585) 000-0000" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="field-group">
+              <label class="field-label" for="customer-email">Email Address</label>
+              <input type="email" id="customer-email" name="customer_email" class="field-input" placeholder="email@example.com" />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="pickup-address">Pickup Address / Town *</label>
+              <input type="text" id="pickup-address" name="pickup_address" class="field-input" placeholder="e.g. Greece, Brighton, Pittsford" required />
+            </div>
+          </div>
+
+          <div class="field-group" style="margin-bottom: 1rem;">
+            <label class="field-label" for="preferred-date">Preferred Date & Time</label>
+            <input type="text" id="preferred-date" name="preferred_date" class="field-input" placeholder="e.g. Saturday morning, weekday after 5:00 PM, or ASAP" />
+          </div>
+
+          <div class="field-group" style="margin-bottom: 1.5rem;">
+            <label class="field-label" for="customer-notes">Additional Details</label>
+            <textarea id="customer-notes" name="customer_notes" class="field-textarea" placeholder="Note any stairs, disassembly requirements, or specific requests..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit-btn">
+            <span id="form-submit-btn-text">Submit Quote Request</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ABOUT SECTION WITH AUTHENTIC BROTHER PORTRAITS
+       ========================================================================= -->
+  <section class="section section-alt" id="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2 class="section-title" data-config="aboutUs.title">About Our Business</h2>
+          <p class="section-subtitle" style="margin-bottom: 1.25rem;" data-config="aboutUs.subtitle">
+            Locally owned and operated in Greater Rochester.
+          </p>
+
+          <div class="about-text-content" id="about-paragraphs">
+            <!-- Populated via config.js -->
+          </div>
+
+          <div class="brother-photos-grid">
+            <div class="brother-photo-card">
+              <div class="brother-img-frame">
+                <img id="brother1-img" src="assets/images/brother1.jpg" alt="Mike" />
+              </div>
+              <div class="brother-caption">
+                <div class="brother-name-val" id="brother1-name">Mike</div>
+                <div class="brother-role-val" id="brother1-role">Co-Owner & Operations</div>
+              </div>
+            </div>
+
+            <div class="brother-photo-card">
+              <div class="brother-img-frame">
+                <img id="brother2-img" src="assets/images/brother2.jpg" alt="Dan" />
+              </div>
+              <div class="brother-caption">
+                <div class="brother-name-val" id="brother2-name">Dan</div>
+                <div class="brother-role-val" id="brother2-role">Co-Owner & Logistics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-points-card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; color: #0f172a;">
+            What Sets Our Service Apart
+          </h3>
+
+          <div class="point-row">
+            <div class="point-bullet"></div>
+            <div>
+              <div class="point-head">Evening & Weekend Pickups</div>
+              <div class="point-desc">We offer appointments after 5:00 PM and on weekends so you do not need to take time off work.</div>
+            </div>
+          </div>
+
+          <div class="point-row">
+            <div class="point-bullet"></div>
+            <div>
+              <div class="point-head">Direct Owner Communication</div>
+              <div class="point-desc">You speak directly with the owners who will be on-site completing the removal.</div>
+            </div>
+          </div>
+
+          <div class="point-row">
+            <div class="point-bullet"></div>
+            <div>
+              <div class="point-head">Property Protection</div>
+              <div class="point-desc">We take extra care navigating doorframes, narrow hallways, and staircases to avoid wall or floor damage.</div>
+            </div>
+          </div>
+
+          <div class="point-row">
+            <div class="point-bullet"></div>
+            <div>
+              <div class="point-head">Guaranteed Upfront Pricing</div>
+              <div class="point-desc">We confirm the exact price before lifting anything. No unexpected fees upon completion.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       WHAT WE TAKE / PROHIBITED ITEMS
+       ========================================================================= -->
+  <section class="section" id="what-we-take-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What We Can & Cannot Haul</h2>
+        <p class="section-subtitle">
+          A clear reference of items accepted and regulated materials we cannot legally transport.
+        </p>
+      </div>
+
+      <div class="take-grid">
+        <div class="take-panel accepted">
+          <h3 class="take-panel-title">Accepted Items</h3>
+          <ul class="take-item-list" id="what-we-take-list">
+            <!-- Populated via config.js -->
+          </ul>
+        </div>
+
+        <div class="take-panel prohibited">
+          <h3 class="take-panel-title">Items We Cannot Accept</h3>
+          <ul class="take-item-list" id="what-we-dont-take-list">
+            <!-- Populated via config.js -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FAQS
+       ========================================================================= -->
+  <section class="section section-alt" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Common questions about our pricing, scheduling, and pickup procedures.
+        </p>
+      </div>
+
+      <div class="faq-wrap" id="faq-container">
+        <!-- Populated via config.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-company" data-config="company.name">Rochester Hauling Brothers</div>
+          <p style="line-height: 1.5; margin-bottom: 0.75rem;" data-config="company.tagline">
+            Residential & Commercial Junk Removal in Rochester, NY
+          </p>
+          <p style="font-size: 0.8rem; color: #64748b;" data-config="company.serviceAreaSummary">
+            Serving Rochester, Greece, Brighton, Henrietta, Pittsford, Webster, Penfield, Fairport, and Monroe County.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Contact</div>
+          <ul class="footer-links">
+            <li>
+              <a href="tel:5855550199" data-config-href="tel:company.phoneRaw">
+                Phone: <span data-config="company.phone">(585) 555-0199</span>
+              </a>
+            </li>
+            <li>
+              <a href="sms:5855550199" data-config-href="sms:company.smsNumber">
+                Text: <span data-config="company.phone">(585) 555-0199</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@rochesterhaulingbrothers.com" data-config-href="mailto:company.email">
+                <span data-config="company.email">contact@rochesterhaulingbrothers.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <p style="line-height: 1.5; margin-bottom: 0.5rem;" data-config="company.operatingHours">
+            Monday – Sunday: 7:00 AM – 8:30 PM (Evening & Weekend Pickups Available)
+          </p>
+          <a href="#calculator-section" class="btn btn-outline-white btn-sm" style="margin-top: 0.5rem;">
+            Online Estimator
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="current-year">2026</span> <span data-config="company.name">Rochester Hauling Brothers</span>. All rights reserved. Rochester, NY.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       SUCCESS MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="success-modal">
+    <div class="modal-card">
+      <h3 class="modal-h">Quote Request Received</h3>
+      <p class="modal-p">
+        Thank you, <span id="modal-customer-name">there</span>. We have received your request and will review your details to provide a confirmed price and schedule.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="tel:5855550199" class="btn btn-primary" data-config-href="tel:company.phoneRaw">
+          Call Directly: <span data-config="company.phone">(585) 555-0199</span>
+        </a>
+        <button type="button" class="btn btn-outline" id="modal-close-btn">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MOBILE ACTION BAR
+       ========================================================================= -->
+  <div class="mobile-bar">
+    <a href="tel:5855550199" class="mobile-btn mobile-btn-call" data-config-href="tel:company.phoneRaw">
+      Call Now
+    </a>
+    <a href="sms:5855550199" class="mobile-btn mobile-btn-text" data-config-href="sms:company.smsNumber">
+      Text Us
+    </a>
+    <a href="#calculator-section" class="mobile-btn mobile-btn-est">
+      Estimator
+    </a>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="config.js"></script>
+  <script src="js/quote-calculator.js"></script>
+  <script src="js/form-handler.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
