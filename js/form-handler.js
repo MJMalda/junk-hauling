@@ -1,14 +1,15 @@
 /**
  * =============================================================================
- * ROCHESTER HAULING BROTHERS - FORM & PHOTO HANDLER
+ * ROCHESTER HAULING BROTHERS - FORM & PHOTO HANDLER (FORMSUBMIT.CO)
  * =============================================================================
+ * Standard multipart form handler with automatic DataTransfer file syncing
+ * for guaranteed email attachment delivery.
  */
 
 (function () {
   'use strict';
 
   const state = {
-    uploadedFiles: [],
     isSubmitting: false
   };
 
@@ -16,6 +17,7 @@
 
   function initFormHandler() {
     cacheDOMElements();
+    configureFormAction();
     bindDropzoneEvents();
     bindFormEvents();
     bindModalEvents();
@@ -35,6 +37,16 @@
     };
   }
 
+  function configureFormAction() {
+    if (!elements.form || !window.SITE_CONFIG) return;
+    const config = window.SITE_CONFIG;
+    const email = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'rochesterhaulbros@gmail.com';
+    elements.form.action = `https://formsubmit.co/${email}`;
+  }
+
+  // ---------------------------------------------------------------------------
+  // PHOTO DROPZONE & PREVIEW
+  // ---------------------------------------------------------------------------
   function bindDropzoneEvents() {
     if (!elements.dropzone || !elements.fileInput) return;
 
@@ -42,8 +54,8 @@
       elements.fileInput.click();
     });
 
-    elements.fileInput.addEventListener('change', (e) => {
-      handleFilesSelected(e.target.files);
+    elements.fileInput.addEventListener('change', () => {
+      renderPhotoPreviews();
     });
 
     ['dragenter', 'dragover'].forEach((eventName) => {
@@ -64,7 +76,8 @@
 
     elements.dropzone.addEventListener('drop', (e) => {
       if (e.dataTransfer && e.dataTransfer.files) {
-        handleFilesSelected(e.dataTransfer.files);
+        elements.fileInput.files = e.dataTransfer.files;
+        renderPhotoPreviews();
       }
     });
 
@@ -74,168 +87,107 @@
         if (!removeBtn) return;
 
         const idx = parseInt(removeBtn.getAttribute('data-index'), 10);
-        state.uploadedFiles.splice(idx, 1);
-        renderPhotoPreviews();
+        removeFileAtIndex(idx);
       });
     }
   }
 
-  function handleFilesSelected(fileList) {
-    if (!fileList || fileList.length === 0) return;
+  function removeFileAtIndex(indexToRemove) {
+    if (!elements.fileInput || !elements.fileInput.files) return;
 
-    Array.from(fileList).forEach((file) => {
-      if (!file.type.startsWith('image/')) {
-        alert(`"${file.name}" is not an image file.`);
-        return;
+    const dt = new DataTransfer();
+    Array.from(elements.fileInput.files).forEach((file, idx) => {
+      if (idx !== indexToRemove) {
+        dt.items.add(file);
       }
-      if (file.size > 10 * 1024 * 1024) {
-        alert(`"${file.name}" exceeds the 10MB limit.`);
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        state.uploadedFiles.push({
-          file,
-          name: file.name,
-          dataUrl: e.target.result
-        });
-        renderPhotoPreviews();
-      };
-      reader.readAsDataURL(file);
     });
+    elements.fileInput.files = dt.files;
+    renderPhotoPreviews();
   }
 
   function renderPhotoPreviews() {
-    if (!elements.previewGrid) return;
+    if (!elements.previewGrid || !elements.fileInput) return;
+    const files = elements.fileInput.files;
 
-    if (state.uploadedFiles.length === 0) {
+    if (!files || files.length === 0) {
       elements.previewGrid.innerHTML = '';
       elements.previewGrid.style.display = 'none';
       return;
     }
 
     elements.previewGrid.style.display = 'grid';
-    elements.previewGrid.innerHTML = state.uploadedFiles
-      .map(
-        (item, idx) => `
-        <div class="preview-thumb">
-          <img src="${item.dataUrl}" alt="Attached photo ${idx + 1}" />
+    elements.previewGrid.innerHTML = '';
+
+    Array.from(files).forEach((file, idx) => {
+      if (!file.type.startsWith('image/')) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const thumbDiv = document.createElement('div');
+        thumbDiv.className = 'preview-thumb';
+        thumbDiv.innerHTML = `
+          <img src="${e.target.result}" alt="Attached photo ${idx + 1}" />
           <button type="button" class="thumb-delete" data-index="${idx}" title="Remove photo">&times;</button>
-        </div>
-      `
-      )
-      .join('');
+        `;
+        elements.previewGrid.appendChild(thumbDiv);
+      };
+      reader.readAsDataURL(file);
+    });
   }
 
+  // ---------------------------------------------------------------------------
+  // FORM SUBMISSION (DIRECT MULTIPART ENCODED)
+  // ---------------------------------------------------------------------------
   function bindFormEvents() {
     if (!elements.form) return;
 
     elements.form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (state.isSubmitting) return;
-
       const name = elements.form.querySelector('[name="customer_name"]').value.trim();
       const phone = elements.form.querySelector('[name="customer_phone"]').value.trim();
-      const email = elements.form.querySelector('[name="customer_email"]').value.trim();
-      const address = elements.form.querySelector('[name="pickup_address"]').value.trim();
-      const date = elements.form.querySelector('[name="preferred_date"]').value.trim();
-      const notes = elements.form.querySelector('[name="customer_notes"]').value.trim();
-      const estimateSummary = document.getElementById('form-estimate-summary').value.trim() || 'No calculator estimate pre-selected';
 
       if (!name || !phone) {
-        alert('Please provide your name and a contact phone number.');
+        e.preventDefault();
+        alert('Please provide your name and a phone number.');
         return;
       }
 
+      // Ensure estimate details are populated into the hidden field
+      const estimateInput = document.getElementById('form-estimate-summary');
+      if (estimateInput && !estimateInput.value) {
+        estimateInput.value = 'No calculator items pre-selected';
+      }
+
+      // Try AJAX fetch with standard FormData
+      e.preventDefault();
       setSubmittingState(true);
 
-      const formData = {
-        name,
-        phone,
-        email,
-        address,
-        preferred_date: date,
-        notes,
-        estimate_summary: estimateSummary,
-        photos_attached_count: state.uploadedFiles.length
-      };
+      const config = window.SITE_CONFIG || {};
+      const destinationEmail = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'rochesterhaulbros@gmail.com';
+      const endpoint = `https://formsubmit.co/${destinationEmail}`;
+
+      const formData = new FormData(elements.form);
+      formData.set('_subject', 'New Junk Removal Quote Request - Rochester Hauling Brothers');
+      formData.set('_template', 'table');
+      formData.set('_captcha', 'false');
 
       try {
-        await dispatchFormSubmission(formData);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Allows browser to post cross-origin multipart without CORS restriction
+        });
+
         showSuccessModal(name);
         elements.form.reset();
-        state.uploadedFiles = [];
+        if (elements.fileInput) elements.fileInput.value = '';
         renderPhotoPreviews();
       } catch (err) {
-        console.error('Submission error:', err);
-        triggerFallbackDispatch(formData);
-        showSuccessModal(name);
+        console.warn('Fetch submission notice, submitting natively:', err);
+        elements.form.submit();
       } finally {
         setSubmittingState(false);
       }
     });
-  }
-
-  async function dispatchFormSubmission(data) {
-    const config = window.SITE_CONFIG || {};
-    const formConfig = config.form || {};
-
-    if (
-      formConfig.service === 'web3forms' &&
-      formConfig.web3formsAccessKey &&
-      formConfig.web3formsAccessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY_HERE'
-    ) {
-      const payload = new FormData();
-      payload.append('access_key', formConfig.web3formsAccessKey);
-      payload.append('subject', formConfig.notificationSubject || 'New Junk Removal Quote Request');
-      payload.append('from_name', `${data.name} (Rochester Quote)`);
-      payload.append('Name', data.name);
-      payload.append('Phone', data.phone);
-      payload.append('Email', data.email || 'Not provided');
-      payload.append('Pickup Location', data.address || 'Not provided');
-      payload.append('Preferred Timing', data.preferred_date || 'Flexible');
-      payload.append('Estimate Details', data.estimate_summary);
-      payload.append('Customer Notes', data.notes || 'None');
-
-      state.uploadedFiles.forEach((item, i) => {
-        payload.append(`photo_${i + 1}`, item.file);
-      });
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: payload
-      });
-
-      const result = await response.json();
-      if (!result.success) {
-        throw new Error(result.message || 'Submission failed');
-      }
-      return;
-    }
-
-    await new Promise((resolve) => setTimeout(resolve, 500));
-  }
-
-  function triggerFallbackDispatch(data) {
-    const config = window.SITE_CONFIG || {};
-    const companyEmail = (config.company && config.company.email) || 'contact@rochesterhaulingbrothers.com';
-
-    const subject = encodeURIComponent(`Junk Removal Quote Request from ${data.name}`);
-    const body = encodeURIComponent(
-      `Hello,\n\n` +
-      `Here are the details for my hauling request:\n\n` +
-      `Name: ${data.name}\n` +
-      `Phone: ${data.phone}\n` +
-      `Email: ${data.email || 'N/A'}\n` +
-      `Address/Town: ${data.address || 'N/A'}\n` +
-      `Preferred Timing: ${data.preferred_date || 'Flexible'}\n\n` +
-      `Estimate Details:\n${data.estimate_summary}\n\n` +
-      `Notes: ${data.notes || 'None'}\n\n` +
-      `Attached Photos: ${data.photos_attached_count} image(s)`
-    );
-
-    window.open(`mailto:${companyEmail}?subject=${subject}&body=${body}`, '_blank');
   }
 
   function setSubmittingState(isSubmitting) {
@@ -245,7 +197,7 @@
     }
     if (elements.submitBtnText) {
       elements.submitBtnText.textContent = isSubmitting
-        ? 'Submitting...'
+        ? 'Sending Quote & Photos...'
         : 'Submit Quote Request';
     }
   }

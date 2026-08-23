@@ -134,7 +134,7 @@
   </section>
 
   <!-- =========================================================================
-       PHOTO UPLOAD & DIRECT QUOTE FORM
+       PHOTO UPLOAD & DIRECT QUOTE FORM (FORMSUBMIT.CO MULTIPART)
        ========================================================================= -->
   <section class="section" id="quote-form-section">
     <div class="container">
@@ -154,52 +154,64 @@
           <a href="#calculator-section" class="btn btn-outline btn-sm">Edit Items</a>
         </div>
 
-        <form id="quote-request-form">
-          <input type="hidden" id="form-estimate-summary" name="estimate_summary" value="" />
+        <form id="quote-request-form" action="https://formsubmit.co/rochesterhaulbros@gmail.com" method="POST" enctype="multipart/form-data">
+          <!-- FormSubmit Configuration Fields -->
+          <input type="hidden" name="_subject" value="New Junk Removal Quote Request - Rochester Hauling Brothers" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" id="form-estimate-summary" name="Calculated Estimate" value="No calculator items pre-selected" />
 
           <div class="field-group" style="margin-bottom: 1rem;">
-            <label class="field-label">Photos of Items (Optional, recommended for accurate quote):</label>
+            <label class="field-label">Photos of Items (Attached directly to your email):</label>
             <div class="upload-box" id="photo-dropzone">
               <div class="upload-title">Click or Drag Photos Here</div>
               <div class="upload-sub">Upload image files (JPG, PNG, HEIC) from your phone or computer</div>
-              <input type="file" id="photo-file-input" class="file-input-hidden" style="display:none;" multiple accept="image/*" />
+              <!-- FormSubmit requires name="attachment" for file delivery -->
+              <input type="file" id="photo-file-input" name="attachment" class="file-input-hidden" style="display:none;" multiple accept="image/*" />
             </div>
 
             <div class="photo-preview-grid" id="photo-preview-grid" style="display: none;"></div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.8rem; color: #64748b;">On mobile? You can also text photos directly:</span>
+              <a href="sms:5855550199" class="btn btn-outline btn-sm" data-config-href="sms:company.smsNumber">
+                Text Photos to (585) 555-0199
+              </a>
+            </div>
           </div>
 
           <div class="form-row-2">
             <div class="field-group">
               <label class="field-label" for="customer-name">Full Name *</label>
-              <input type="text" id="customer-name" name="customer_name" class="field-input" placeholder="Your name" required />
+              <input type="text" id="customer-name" name="Customer Name" class="field-input" placeholder="Your name" required />
             </div>
 
             <div class="field-group">
               <label class="field-label" for="customer-phone">Phone Number *</label>
-              <input type="tel" id="customer-phone" name="customer_phone" class="field-input" placeholder="(585) 000-0000" required />
+              <input type="tel" id="customer-phone" name="Phone Number" class="field-input" placeholder="(585) 000-0000" required />
             </div>
           </div>
 
           <div class="form-row-2">
             <div class="field-group">
               <label class="field-label" for="customer-email">Email Address</label>
-              <input type="email" id="customer-email" name="customer_email" class="field-input" placeholder="email@example.com" />
+              <input type="email" id="customer-email" name="Email Address" class="field-input" placeholder="email@example.com" />
             </div>
 
             <div class="field-group">
               <label class="field-label" for="pickup-address">Pickup Address / Town *</label>
-              <input type="text" id="pickup-address" name="pickup_address" class="field-input" placeholder="e.g. Greece, Brighton, Pittsford" required />
+              <input type="text" id="pickup-address" name="Pickup Location" class="field-input" placeholder="e.g. Greece, Brighton, Pittsford" required />
             </div>
           </div>
 
           <div class="field-group" style="margin-bottom: 1rem;">
             <label class="field-label" for="preferred-date">Preferred Date & Time</label>
-            <input type="text" id="preferred-date" name="preferred_date" class="field-input" placeholder="e.g. Saturday morning, weekday after 5:00 PM, or ASAP" />
+            <input type="text" id="preferred-date" name="Preferred Timing" class="field-input" placeholder="e.g. Saturday morning, weekday after 5:00 PM, or ASAP" />
           </div>
 
           <div class="field-group" style="margin-bottom: 1.5rem;">
             <label class="field-label" for="customer-notes">Additional Details</label>
-            <textarea id="customer-notes" name="customer_notes" class="field-textarea" placeholder="Note any stairs, disassembly requirements, or specific requests..."></textarea>
+            <textarea id="customer-notes" name="Customer Notes" class="field-textarea" placeholder="Note any stairs, disassembly requirements, or specific requests..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit-btn">
