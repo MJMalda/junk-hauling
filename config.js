@@ -208,7 +208,7 @@ const SITE_CONFIG = {
   form: {
     service: "formsubmit",
     // Put the destination email address where you want to receive quotes and photos:
-    destinationEmail: "michelmaldaj@gmail.com",
+    destinationEmail: "ca606fed5293c6697a97b74df5efc509",
     notificationSubject: "New Junk Removal Quote Request - Rochester Hauling Brothers"
   }
 };
