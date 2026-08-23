@@ -288,6 +288,9 @@
       itemsMax,
       terrainTotal
     };
+
+    // Keep form estimate hidden input and banner synced in real time!
+    syncEstimateToForm();
   }
 
   function syncEstimateToForm() {
@@ -298,6 +301,9 @@
           <strong>No items selected in calculator</strong>
           <span>You can still request a quote or attach photos below.</span>
         `;
+      }
+      if (elements.formEstimateDataInput) {
+        elements.formEstimateDataInput.value = 'No calculator items pre-selected';
       }
       return;
     }
