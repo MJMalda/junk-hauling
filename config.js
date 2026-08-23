@@ -52,12 +52,12 @@ const SITE_CONFIG = {
       "Because many of our customers work during normal business hours, we provide flexible evening appointments after 5:00 PM and weekend pickups at no extra charge."
     ],
     brother1: {
-      name: "Mike",
+      name: "Dave",
       role: "Co-Owner & Operations",
       image: "assets/images/brother1.jpg"
     },
     brother2: {
-      name: "Dan",
+      name: "Mike",
       role: "Co-Owner & Logistics",
       image: "assets/images/brother2.jpg"
     }
