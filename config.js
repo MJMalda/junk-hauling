@@ -28,7 +28,7 @@ const SITE_CONFIG = {
     // Service Area & Hours
     cityState: "Rochester, NY",
     serviceAreaSummary: "Serving Rochester, Greece, Brighton, Henrietta, Pittsford, Webster, Penfield, Fairport, and surrounding Monroe County towns.",
-    operatingHours: "Monday – Sunday: 7:00 AM – 8:30 PM (Evening & Weekend Pickups Available)",
+    operatingHours: "Monday – Friday: 5:00 PM – 8:30 PM  |  Saturday – Sunday: 7:00 AM – 8:30 PM  (Evening & Weekend Pickups Available)",
 
     heroActionImage: "assets/images/action_shot.jpg",
 
@@ -52,12 +52,12 @@ const SITE_CONFIG = {
       "Because many of our customers work during normal business hours, we provide flexible evening appointments after 5:00 PM and weekend pickups at no extra charge."
     ],
     brother1: {
-      name: "Mike",
-      role: "Co-Owner & Operations",
+      name: "Dave",
+      role: "Co-Owner & Muscle",
       image: "assets/images/brother1.jpg"
     },
     brother2: {
-      name: "Dan",
+      name: "Mike",
       role: "Co-Owner & Logistics",
       image: "assets/images/brother2.jpg"
     }
@@ -117,6 +117,7 @@ const SITE_CONFIG = {
         { id: "coffee_table", name: "Coffee Table / End Table", minPrice: 20, maxPrice: 35 },
         { id: "entertainment_center", name: "TV Stand / Media Console", minPrice: 40, maxPrice: 70 },
         { id: "dining_set", name: "Dining Table & Chairs", minPrice: 60, maxPrice: 100 },
+        { id: "upright_piano", name: "Upright Piano", minPrice: 90, maxPrice: 130 },
         { id: "bookshelf", name: "Bookshelf / Cabinet", minPrice: 35, maxPrice: 60 }
       ]
     },
@@ -172,6 +173,7 @@ const SITE_CONFIG = {
     "Asbestos, medical waste, and biohazards",
     "Pressurized gas or propane tanks",
     "Explosives and hazardous industrial materials"
+    "Single items exceeding 400 lbs (Grand Pianos, )"
   ],
 
   // ---------------------------------------------------------------------------
@@ -206,7 +208,7 @@ const SITE_CONFIG = {
   form: {
     service: "formsubmit",
     // Put the destination email address where you want to receive quotes and photos:
-    destinationEmail: "ca606fed5293c6697a97b74df5efc509",
+    destinationEmail: "michelmaldaj@gmail.com",
     notificationSubject: "New Junk Removal Quote Request - Rochester Hauling Brothers"
   }
 };
