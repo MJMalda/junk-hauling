@@ -1427,3 +1427,151 @@ button, input, select, textarea {
   line-height: 1.45;
   margin: 0;
 }
+
+/* ==========================================================================
+   MOBILE-ONLY POLISH (STRICTLY UNDER 640px — DESKTOP 100% UNTOUCHED)
+   ========================================================================== */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 2.75rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+
+  /* 1. Top Navbar: Prevent Logo + Title + Button from Crushing/Overflowing */
+  .navbar-container {
+    height: 60px;
+    gap: 0.5rem;
+  }
+
+  .nav-brand {
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .nav-logo {
+    height: 36px;
+  }
+
+  .nav-company-name {
+    font-size: 0.95rem;
+    line-height: 1.15;
+  }
+
+  .nav-company-sub {
+    font-size: 0.7rem;
+  }
+
+  .nav-actions .btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  /* Hide the phone number inside the top-right button on small phones so it reads cleanly as "Text Photos" */
+  .nav-btn-phone-wrap {
+    display: none;
+  }
+
+  /* 2. Hero Section: Fit Phone Screen Cleanly with Full-Width Thumb Buttons */
+  .hero {
+    min-height: auto;
+    padding: 2rem 0 2.5rem 0;
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+    line-height: 1.22;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  .trust-item {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    padding: 0.45rem 0.7rem;
+  }
+
+  /* 3. Estimator & Form: Prevent iOS Safari Auto-Zoom & Stack Actions */
+  .select-input,
+  .field-input,
+  .field-textarea {
+    font-size: 16px;
+  }
+
+  .stepper-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .estimator-footer {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .estimator-footer-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .estimator-footer-actions .btn {
+    width: 100%;
+  }
+
+  .estimator-subfooter {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .sms-fast-banner .btn {
+    width: 100%;
+  }
+
+  /* 4. Sticky Bottom Bar: Keep Compact on Phone Screens */
+  .sticky-payment-strip {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    gap: 0.35rem;
+    flex-wrap: nowrap;
+  }
+
+  .sticky-payment-label {
+    font-size: 0.68rem;
+  }
+
+  .sticky-payment-strip .payment-logo-badge svg {
+    height: 20px;
+    width: auto;
+  }
+}
+
