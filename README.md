@@ -1,19 +1,20 @@
-# 🚛 Rochester, NY Junk Hauling Website
+# 🚛 Junk Removal Bros Website
 
-Welcome to your clean, professional, modular website for your two-brother junk hauling business in Rochester, NY!
+Welcome to your clean, professional, modular website for **Junk Removal Bros** in Rochester, NY!
 
 This site is built with a **Zero-Build, Single-Config architecture**: you can edit your company name, phone, email, prices, photos, and copy in one file (`config.js`) and publish directly to **GitHub Pages** (100% free).
 
 ---
 
-## 📸 What's New in this Professional Redesign
+## 📸 Highlights
 
-1. **Clean Dropdown Item Estimator**:
-   - Replaced cluttered item grids with a clean dropdown menu: choose an item, click **"+ Add Item"**, and see an itemized list with `+` / `-` adjustments and one-click removal.
-2. **Simplified Access Modifiers**:
-   - Clean toggles for Stairs (1 flight, 2+ flights) and Tight Hallways / Sharp Corners.
+1. **Streamlined Instant Price Estimator**:
+   - One-tap quick-add chips for the most common items plus an instant-add dropdown menu and compact access-factor pills.
+   - Pre-fills a direct text message with the customer's selected items and estimated range.
+2. **Text-First Lead Capture**:
+   - Prominent **Text Photos** buttons in the header, hero, price estimator, quote form, and mobile bar (`205-205-7572`).
 3. **Authentic Photography & Trust Elements**:
-   - **Hero Action Shot**: High-resolution image of the two brothers in uniform carrying furniture to their clean hauling truck.
+   - **Hero Action Shot**: High-resolution image of the two brothers in uniform carrying furniture to their clean removal truck.
    - **"Meet the Brothers" Portraits**: Authentic portraits of Brother 1 and Brother 2 in matching navy work shirts side-by-side.
 
 ---
@@ -21,13 +22,13 @@ This site is built with a **Zero-Build, Single-Config architecture**: you can ed
 ## 📁 Project Structure
 
 ```
-JunkHauling/
+junk-removal/
 ├── config.js               ⭐ THE ONLY FILE YOU NEED TO EDIT
 ├── index.html              # Main webpage structure & SEO
 ├── css/
 │   └── styles.css          # Clean, modern styling & responsive layouts
 ├── js/
-│   ├── quote-calculator.js # Dropdown auto-quote calculator engine
+│   ├── quote-calculator.js # Instant quote calculator engine
 │   ├── form-handler.js     # Photo dropzone & email submission handler
 │   └── main.js             # Injects data and photos from config.js
 ├── assets/
@@ -44,9 +45,9 @@ JunkHauling/
 
 Open **`config.js`** in any text editor:
 
-1. **Company Name**: Change `"Rochester Haul Bros"` to your chosen name.
-2. **Phone & SMS**: Update `phone`, `phoneRaw`, and `smsNumber`.
-3. **Email**: Update `email` to your business email.
+1. **Company Name**: Edit `company.name` (`"Junk Removal Bros"`).
+2. **Phone & SMS**: Update `phone`, `phoneRaw`, and `smsNumber` (`"205-205-7572"` / `"2052057572"`).
+3. **Email**: Update `company.email` and `form.destinationEmail` (`"RocJunkRemoval@proton.me"`).
 4. **Your Real Photos**:
    - Place your real smartphone/camera photos inside `assets/images/`.
    - Update the file names in `config.js` (e.g. `brother1.image: "assets/images/your_photo.jpg"`).
@@ -57,22 +58,23 @@ Save `config.js` and refresh your browser — **everything updates immediately!*
 
 ---
 
-## 📧 How to Receive Quotes & Photos in Your Email (Free)
+## 📧 How to Change the Email Where Quotes Get Sent
 
-1. Go to [https://web3forms.com](https://web3forms.com).
-2. Enter your business email address and click **"Create Access Key"**.
-3. Copy your free access key from your email.
-4. Open `config.js` and paste it under `web3formsAccessKey`:
-   ```javascript
-   web3formsAccessKey: "YOUR_PASTED_ACCESS_KEY_HERE",
-   ```
-5. Done! Submissions with photos and itemized calculator estimates will go straight to your inbox.
+This website uses **[FormSubmit.co](https://formsubmit.co)** (100% free, supports photo attachments, no account required):
+
+1. Open `config.js` and update two fields to your desired email address:
+   - `company.email` (line 25) — displayed on the website
+   - `form.destinationEmail` (line 198) — where quote form submissions and photos are sent
+2. **Important One-Time Activation Step**:
+   - The very first time a quote is submitted to a new email address on your live site, FormSubmit will send an **"Activate Form"** confirmation email to that inbox (`RocJunkRemoval@proton.me`).
+   - Click **"Activate Form"** inside that email once (check Spam/Promotions just in case).
+   - FormSubmit will also give you an optional random string (hash) in that email — you can either keep your regular email in `form.destinationEmail` or paste that hash string if you want to hide the raw email address from the form code.
 
 ---
 
 ## 🚀 How to Publish on GitHub Pages (Free)
 
-1. Create a free repository on [GitHub](https://github.com) (e.g., `junk-hauling-rochester`).
+1. Create a free repository on [GitHub](https://github.com) (e.g., `junk-removal-bros`).
 2. Upload all the files and folders from this project into your GitHub repository.
 3. Go to **Settings** $\rightarrow$ **Pages** (in the left sidebar).
 4. Under **"Branch"**, choose `main` (or `master`) and folder `/ (root)`, then click **Save**.
