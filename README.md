@@ -1,6 +1,6 @@
-# 🚛 Junk Removal Bros Website
+# 🚛 Junk Removal Brothers Website
 
-Welcome to your clean, professional, modular website for **Junk Removal Bros** in Rochester, NY!
+Welcome to your clean, professional, modular website for **Junk Removal Brothers** in Rochester, NY!
 
 This site is built with a **Zero-Build, Single-Config architecture**: you can edit your company name, phone, email, prices, photos, and copy in one file (`config.js`) and publish directly to **GitHub Pages** (100% free).
 
@@ -45,7 +45,7 @@ junk-removal/
 
 Open **`config.js`** in any text editor:
 
-1. **Company Name**: Edit `company.name` (`"Junk Removal Bros"`).
+1. **Company Name**: Edit `company.name` (`"Junk Removal Brothers"`).
 2. **Phone & SMS**: Update `phone`, `phoneRaw`, and `smsNumber` (`"205-205-7572"` / `"2052057572"`).
 3. **Email**: Update `company.email` and `form.destinationEmail` (`"RocJunkRemoval@proton.me"`).
 4. **Your Real Photos**:

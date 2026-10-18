@@ -1,35 +1,36 @@
 /* ==========================================================================
-   JUNK REMOVAL BROS - CLEAN TRADE & CONTRACTOR DESIGN SYSTEM
+   JUNK REMOVAL BROTHERS - GREEN (#176B45), CHARCOAL/BLACK & WHITE THEME
    ========================================================================== */
 
 :root {
-  --color-slate-950: #020617;
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748b;
-  --color-slate-400: #94a3b8;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
-  --color-slate-100: #f1f5f9;
-  --color-slate-50: #f8fafc;
+  --color-slate-950: #0f1110;
+  --color-slate-900: #181a19;
+  --color-slate-800: #262927;
+  --color-slate-700: #373b38;
+  --color-slate-600: #4b504d;
+  --color-slate-500: #646a66;
+  --color-slate-400: #9ca39f;
+  --color-slate-300: #d1d5d2;
+  --color-slate-200: #e5e7e6;
+  --color-slate-100: #f3f4f3;
+  --color-slate-50: #f6fbf8;
   --color-white: #ffffff;
   
-  --color-blue-900: #1e3a8a;
-  --color-blue-800: #1e40af;
-  --color-blue-700: #1d4ed8;
-  --color-blue-50: #eff6ff;
+  --color-blue-900: #115234;
+  --color-blue-800: #145e3c;
+  --color-blue-700: #176B45;
+  --color-blue-400: #34d399;
+  --color-blue-50: #ecfdf5;
   
-  --color-amber-600: #d97706;
-  --color-amber-500: #f59e0b;
-  --color-emerald-700: #047857;
-  --color-red-700: #b91c1c;
+  --color-amber-600: #176B45;
+  --color-amber-500: #4ade80;
+  --color-emerald-700: #176B45;
+  --color-red-700: #dc2626;
 
-  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-raised: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-overlay: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 6px -1px rgba(0, 0, 0, 0.08), 0 1px 3px -1px rgba(0, 0, 0, 0.06);
+  --shadow-raised: 0 4px 10px -1px rgba(0, 0, 0, 0.12), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+  --shadow-overlay: 0 20px 25px -5px rgba(0, 0, 0, 0.35);
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -59,12 +60,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 64px;
+  padding-bottom: 104px;
 }
 
 @media (min-width: 768px) {
   body {
-    padding-bottom: 0;
+    padding-bottom: 46px;
   }
 }
 
@@ -99,8 +100,8 @@ button, input, select, textarea {
 
 .section-alt {
   background-color: var(--color-slate-50);
-  border-top: 1px solid var(--color-slate-200);
-  border-bottom: 1px solid var(--color-slate-200);
+  border-top: 1px solid #d1fae5;
+  border-bottom: 1px solid #d1fae5;
 }
 
 .section-header {
@@ -113,7 +114,7 @@ button, input, select, textarea {
   font-size: 1.95rem;
   font-weight: 700;
   letter-spacing: -0.015em;
-  color: var(--color-slate-900);
+  color: var(--color-slate-950);
   margin-bottom: 0.5rem;
 }
 
@@ -124,7 +125,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   BUTTONS (CLEAN & SUBTLE)
+   BUTTONS (GREEN #176B45, CHARCOAL/BLACK & WHITE)
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -132,7 +133,7 @@ button, input, select, textarea {
   justify-content: center;
   padding: 0.65rem 1.35rem;
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
@@ -142,49 +143,51 @@ button, input, select, textarea {
 }
 
 .btn-primary {
-  background-color: var(--color-blue-900);
+  background-color: var(--color-blue-700);
   color: var(--color-white);
-  border-color: var(--color-blue-900);
+  border-color: var(--color-blue-700);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-slate-900);
-  border-color: var(--color-slate-900);
+  background-color: var(--color-blue-900);
+  border-color: var(--color-blue-900);
 }
 
 .btn-accent {
-  background-color: var(--color-amber-600);
+  background-color: var(--color-blue-700);
   color: var(--color-white);
+  border-color: var(--color-blue-700);
 }
 
 .btn-accent:hover {
-  background-color: #b45309;
+  background-color: var(--color-blue-900);
+  border-color: var(--color-blue-900);
 }
 
 .btn-outline-white {
   background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.65);
   color: var(--color-white);
 }
 
 .btn-outline-white:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: var(--color-white);
+  background-color: rgba(23, 107, 69, 0.35);
+  border-color: var(--color-blue-400);
 }
 
 .btn-outline {
   background-color: var(--color-white);
   border-color: var(--color-slate-300);
-  color: var(--color-slate-800);
+  color: var(--color-slate-950);
 }
 
 .btn-outline:hover {
-  background-color: var(--color-slate-100);
-  border-color: var(--color-slate-400);
+  background-color: var(--color-blue-50);
+  border-color: var(--color-blue-700);
 }
 
 .btn-sm {
-  padding: 0.35rem 0.8rem;
+  padding: 0.4rem 0.9rem;
   font-size: 0.85rem;
 }
 
@@ -205,34 +208,48 @@ button, input, select, textarea {
   top: 0;
   z-index: 100;
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-slate-200);
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  height: 68px;
+  gap: 1.5rem;
+  height: 72px;
 }
 
 .nav-brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
   flex-shrink: 0;
+}
+
+.nav-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-company-name {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-slate-950);
   letter-spacing: -0.01em;
 }
 
 .nav-company-sub {
   font-size: 0.75rem;
-  color: var(--color-slate-500);
-  font-weight: 500;
+  color: var(--color-blue-700);
+  font-weight: 700;
 }
 
 .nav-menu {
@@ -250,14 +267,14 @@ button, input, select, textarea {
 
 .nav-link {
   font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--color-slate-700);
+  font-weight: 600;
+  color: var(--color-slate-800);
   transition: var(--transition);
   white-space: nowrap;
 }
 
 .nav-link:hover {
-  color: var(--color-blue-900);
+  color: var(--color-blue-700);
 }
 
 .nav-actions {
@@ -276,9 +293,9 @@ button, input, select, textarea {
 
 .nav-phone {
   display: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-blue-900);
+  color: var(--color-blue-700);
   white-space: nowrap;
 }
 
@@ -299,9 +316,9 @@ button, input, select, textarea {
   align-items: center;
   background-image: linear-gradient(
       to right,
-      rgba(15, 23, 42, 0.92) 0%,
-      rgba(15, 23, 42, 0.82) 45%,
-      rgba(15, 23, 42, 0.55) 100%
+      rgba(15, 17, 16, 0.92) 0%,
+      rgba(15, 17, 16, 0.8) 45%,
+      rgba(15, 17, 16, 0.5) 100%
     ),
     url('../assets/images/action_shot.jpg');
   background-size: cover;
@@ -311,8 +328,8 @@ button, input, select, textarea {
 }
 
 .hero-box {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 17, 16, 0.92);
+  border: 1px solid rgba(52, 211, 153, 0.35);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   max-width: 620px;
@@ -327,16 +344,16 @@ button, input, select, textarea {
 
 .hero-tag {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #93c5fd;
+  color: var(--color-blue-400);
   margin-bottom: 0.75rem;
 }
 
 .hero-title {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.015em;
   margin-bottom: 1rem;
@@ -344,7 +361,7 @@ button, input, select, textarea {
 
 .hero-description {
   font-size: 1rem;
-  color: #cbd5e1;
+  color: #e5e7e6;
   line-height: 1.6;
   margin-bottom: 1.75rem;
 }
@@ -360,18 +377,18 @@ button, input, select, textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 1.25rem;
 }
 
 .trust-item {
   font-size: 0.8rem;
-  font-weight: 500;
-  color: #e2e8f0;
-  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  color: var(--color-white);
+  background: rgba(23, 107, 69, 0.35);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.45);
 }
 
 /* ==========================================================================
@@ -465,8 +482,8 @@ button, input, select, textarea {
 
 .select-input:focus {
   outline: none;
-  border-color: var(--color-blue-900);
-  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.1);
+  border-color: var(--color-blue-700);
+  box-shadow: 0 0 0 2px rgba(23, 107, 69, 0.15);
 }
 
 .selected-items-area {
@@ -745,7 +762,7 @@ button, input, select, textarea {
 
 .sms-fast-banner {
   background: var(--color-blue-50);
-  border: 1px solid #bfdbfe;
+  border: 1px solid #a7f3d0;
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   margin-bottom: 1.25rem;
@@ -759,7 +776,7 @@ button, input, select, textarea {
 .sms-fast-banner-text strong {
   display: block;
   font-size: 0.9rem;
-  color: var(--color-blue-900);
+  color: var(--color-blue-700);
 }
 
 .sms-fast-banner-text span {
@@ -775,7 +792,7 @@ button, input, select, textarea {
 }
 
 .form-privacy-note a {
-  color: var(--color-blue-900);
+  color: var(--color-blue-700);
   font-weight: 500;
 }
 
@@ -815,7 +832,7 @@ button, input, select, textarea {
 }
 
 .upload-box:hover, .upload-box.drag-over {
-  border-color: var(--color-blue-900);
+  border-color: var(--color-blue-700);
   background: var(--color-blue-50);
 }
 
@@ -859,7 +876,7 @@ button, input, select, textarea {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 17, 16, 0.85);
   color: white;
   border: none;
   cursor: pointer;
@@ -869,7 +886,7 @@ button, input, select, textarea {
   justify-content: center;
 }
 
-.form-row-2 {
+.form-row-2, .form-row-3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -879,6 +896,9 @@ button, input, select, textarea {
 @media (min-width: 600px) {
   .form-row-2 {
     grid-template-columns: 1fr 1fr;
+  }
+  .form-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -904,7 +924,7 @@ button, input, select, textarea {
 
 .field-input:focus, .field-textarea:focus {
   outline: none;
-  border-color: var(--color-blue-900);
+  border-color: var(--color-blue-700);
 }
 
 .field-textarea {
@@ -984,6 +1004,21 @@ button, input, select, textarea {
   border-radius: var(--radius-lg);
   padding: 1.75rem;
   box-shadow: var(--shadow-subtle);
+}
+
+.about-logo-wrap {
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.15rem;
+  border-bottom: 1px solid var(--color-slate-100);
+  display: flex;
+  justify-content: center;
+}
+
+.about-logo {
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .point-row {
@@ -1072,6 +1107,41 @@ button, input, select, textarea {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+}
+
+/* ==========================================================================
+   AREAS WE SERVE (MONROE COUNTY BADGE GRID)
+   ========================================================================== */
+.service-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+@media (min-width: 560px) {
+  .service-areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 820px) {
+  .service-areas-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.area-badge {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+  box-shadow: var(--shadow-subtle);
 }
 
 /* ==========================================================================
@@ -1182,6 +1252,27 @@ button, input, select, textarea {
   color: var(--color-white);
 }
 
+.payment-logos-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.payment-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.payment-logo-badge svg {
+  display: block;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 1.5rem;
@@ -1190,17 +1281,62 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   MOBILE BAR & MODAL
+   STICKY BOTTOM BAR (SCROLLING PAYMENT SYMBOLS + MOBILE ACTIONS)
    ========================================================================== */
-.mobile-bar {
+.sticky-bottom-bar {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: var(--color-white);
-  border-top: 1px solid var(--color-slate-200);
-  padding: 0.5rem 0.75rem;
-  display: flex;
-  gap: 0.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
+  background: var(--color-slate-950);
+  color: var(--color-white);
+  border-top: 2px solid var(--color-blue-400);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-payment-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.sticky-payment-strip .payment-logos-row {
+  margin-bottom: 0;
+  gap: 0.4rem;
+}
+
+.sticky-payment-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-blue-400);
+}
+
+.sticky-payment-extra {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #d4d4d4;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .sticky-payment-extra {
+    display: inline;
+  }
+}
+
+.mobile-bar {
+  background: var(--color-slate-900);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.45rem 0.75rem 0.55rem 0.75rem;
+  display: flex;
+  gap: 0.6rem;
 }
 
 @media (min-width: 768px) {
@@ -1211,16 +1347,30 @@ button, input, select, textarea {
 
 .mobile-btn {
   flex: 1;
-  padding: 0.55rem 0.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
   text-align: center;
 }
 
-.mobile-btn-call { background: var(--color-emerald-700); color: white; }
-.mobile-btn-text { background: var(--color-blue-900); color: white; }
-.mobile-btn-est { background: var(--color-slate-800); color: white; }
+.mobile-btn-icon {
+  flex-shrink: 0;
+}
+
+.mobile-btn-call {
+  background: var(--color-white);
+  color: var(--color-slate-950);
+}
+
+.mobile-btn-text {
+  background: var(--color-blue-700);
+  color: var(--color-white);
+}
 
 .form-success-banner {
   background: #ecfdf5;

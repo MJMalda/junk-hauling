@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * JUNK REMOVAL BROS - MAIN CONFIGURATION FILE
+ * JUNK REMOVAL BROTHERS - MAIN CONFIGURATION FILE
  * =============================================================================
  * 
  * Edit this file to customize business name, contact info, pricing, and text.
@@ -13,23 +13,37 @@ const SITE_CONFIG = {
   // 1. BUSINESS & CONTACT INFORMATION
   // ---------------------------------------------------------------------------
   company: {
-    name: "Junk Removal Bros",
+    name: "Junk Removal Brothers",
     tagline: "Residential & Commercial Junk Removal in Rochester, NY",
     shortDescription: "Family-owned and operated. Text us a photo for a fast quote, or use our estimator below. We handle all heavy lifting and offer evening & weekend pickups throughout Monroe County.",
 
     // Contact Info
     phone: "205-205-7572",
-    phoneRaw: "2052057572",
-    smsNumber: "2052057572",
+    phoneRaw: "12052057572",
+    smsNumber: "12052057572",
+    smsDefaultBody: "Hi Junk Removal Brothers! I'd like a quote. Here is what I have and my town:",
 
     // YOUR ACTUAL EMAIL (This is where FormSubmit will send all quotes & photos!)
     email: "RocJunkRemoval@proton.me",
 
     // Service Area & Hours
     cityState: "Rochester, NY",
-    serviceAreaSummary: "Serving Rochester, Greece, Brighton, Henrietta, Pittsford, Webster, Penfield, Fairport, and surrounding Monroe County towns.",
-    operatingHours: "Monday – Sunday: 7:00 AM – 8:30 PM (Evening & Weekend Pickups Available)",
+    serviceAreaSummary: "Serving Rochester, Greece, Brighton, Henrietta, Pittsford, Webster, Penfield, Fairport, Irondequoit, Chili, and surrounding Monroe County towns.",
+    serviceAreas: [
+      "Rochester",
+      "Brighton",
+      "Henrietta",
+      "Pittsford",
+      "Greece",
+      "Webster",
+      "Penfield",
+      "Fairport",
+      "Irondequoit",
+      "Chili"
+    ],
+    operatingHours: "Flexible Scheduling — Evening & Weekend Pickups Available",
 
+    logo: "assets/images/Rochester Junk Removal Brothers Logo.png",
     heroActionImage: "assets/images/action_shot.jpg",
 
     trustPoints: [
@@ -70,7 +84,7 @@ const SITE_CONFIG = {
     minimumJobPrice: 75,
     discountPercent: 5,
     discountDescription: "5% Discount for Senior Citizens, Military, First Responders, Social Services & Education Workers",
-    disclaimer: "Note: Online estimates are a ballpark range. Prices may vary pending mileage and the condition/weight of items—text or call 205-205-7572 for more details.",
+    disclaimer: "Ballpark estimate assumes standard curbside or ground-floor access. Final quotes confirmed before lifting based on truck volume and material weight.",
 
     terrainModifiers: [
       {
@@ -109,7 +123,8 @@ const SITE_CONFIG = {
         { id: "coffee_table", name: "Coffee Table / End Table", minPrice: 20, maxPrice: 35 },
         { id: "entertainment_center", name: "TV Stand / Media Console", minPrice: 40, maxPrice: 70 },
         { id: "dining_set", name: "Dining Table & Chairs", minPrice: 60, maxPrice: 100 },
-        { id: "bookshelf", name: "Bookshelf / Cabinet", minPrice: 35, maxPrice: 60 }
+        { id: "bookshelf", name: "Bookshelf / Cabinet", minPrice: 35, maxPrice: 60 },
+        { id: "piano", name: "Piano (Upright / Spinet / Console)", minPrice: 175, maxPrice: 275 }
       ]
     },
     {
@@ -150,6 +165,7 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   whatWeTake: [
     "Household furniture (couches, mattresses, dressers, tables)",
+    "Pianos, organs, and heavy specialty items",
     "Major appliances (refrigerators, washers, dryers, stoves — disconnected)",
     "Televisions, electronics, and small appliances",
     "Attic, basement, and garage cleanouts",
@@ -159,6 +175,7 @@ const SITE_CONFIG = {
   ],
 
   whatWeDontTake: [
+    "Appliances still connected to water, gas, or hardwired power (must be disconnected)",
     "Wet paint, stains, and chemical solvents (dried paint cans are OK)",
     "Motor oil, gasoline, and hazardous automotive fluids",
     "Asbestos, medical waste, and biohazards",
@@ -204,7 +221,7 @@ const SITE_CONFIG = {
     service: "formsubmit",
     // Using your FormSubmit activation code keeps your raw email address hidden from form-scraping bots:
     destinationEmail: "f13f4498a5103e0f70db326088276b1f",
-    notificationSubject: "New Junk Removal Quote Request - Junk Removal Bros"
+    notificationSubject: "New Junk Removal Quote Request - Junk Removal Brothers"
   }
 };
 
