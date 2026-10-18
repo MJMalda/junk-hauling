@@ -324,7 +324,7 @@
 
   function syncEstimateToForm() {
     const calc = state.lastCalculated;
-    const smsNum = (window.SITE_CONFIG.company && window.SITE_CONFIG.company.smsNumber) || '12052057572';
+    const smsNum = (window.SITE_CONFIG.company && window.SITE_CONFIG.company.smsNumber) || '15856994762';
     const defaultSmsHref = `sms:${smsNum}?&body=Hi%20Junk%20Removal%20Brothers!%20I'd%20like%20a%20quote.%20Here%20is%20what%20I%20have%20and%20my%20town:`;
 
     if (!calc || calc.totalCount === 0) {
