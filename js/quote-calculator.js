@@ -306,11 +306,8 @@
     }
 
     if (elements.estimateHint) {
-      if (totalCount === 0) {
-        elements.estimateHint.textContent = `Minimum pickup starts at $${pricing.minimumJobPrice}. Prices can change pending mileage and condition of items—text/call for more.`;
-      } else {
-        elements.estimateHint.textContent = `Based on ${totalCount} item${totalCount === 1 ? '' : 's'}. Prices can change pending mileage and condition of items—text/call for more.`;
-      }
+      elements.estimateHint.textContent =
+        'Ballpark estimate assumes standard curbside or ground-floor access. Final quotes confirmed before lifting based on truck volume and material weight.';
     }
 
     state.lastCalculated = {
@@ -327,7 +324,8 @@
 
   function syncEstimateToForm() {
     const calc = state.lastCalculated;
-    const smsNum = (window.SITE_CONFIG.company && window.SITE_CONFIG.company.smsNumber) || '2052057572';
+    const smsNum = (window.SITE_CONFIG.company && window.SITE_CONFIG.company.smsNumber) || '12052057572';
+    const defaultSmsHref = `sms:${smsNum}?&body=Hi%20Junk%20Removal%20Brothers!%20I'd%20like%20a%20quote.%20Here%20is%20what%20I%20have%20and%20my%20town:`;
 
     if (!calc || calc.totalCount === 0) {
       if (elements.attachedEstimateBox) {
@@ -337,8 +335,8 @@
         elements.formEstimateDataInput.value = 'No calculator items pre-selected';
       }
       if (elements.btnSms) {
-        elements.btnSms.href = `sms:${smsNum}`;
-        elements.btnSms.textContent = 'Text Us for Fast Quote';
+        elements.btnSms.href = defaultSmsHref;
+        elements.btnSms.textContent = 'Text Photos for a Fast Quote';
       }
       return;
     }
@@ -381,7 +379,9 @@
     }
 
     if (elements.btnSms) {
-      const smsBody = encodeURIComponent(`Hi Junk Removal Bros! I'd like a quote for: ${itemListStrings.join(', ')}${terrainStrings.length ? ' (' + terrainStrings.join(', ') + ')' : ''} [Est: $${calc.finalMin}-$${calc.finalMax}].`);
+      const smsBody = encodeURIComponent(
+        `Hi Junk Removal Brothers! I'd like a quote. Here is what I have (${itemListStrings.join(', ')}${terrainStrings.length ? ', ' + terrainStrings.join(', ') : ''} — Est: $${calc.finalMin}-$${calc.finalMax}) and my town:`
+      );
       elements.btnSms.href = `sms:${smsNum}?&body=${smsBody}`;
       elements.btnSms.textContent = 'Text This Estimate';
     }

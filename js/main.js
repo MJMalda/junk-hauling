@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * JUNK REMOVAL BROS - MAIN APPLICATION
+ * JUNK REMOVAL BROTHERS - MAIN APPLICATION
  * =============================================================================
  */
 
@@ -17,6 +17,7 @@
     renderTrustPoints();
     renderAboutSection();
     renderWhatWeTakeLists();
+    renderServiceAreas();
     renderFAQSection();
     bindFAQAccordion();
   }
@@ -36,6 +37,8 @@
       }
     });
 
+    const defaultSmsQuery = `?&body=Hi%20Junk%20Removal%20Brothers!%20I'd%20like%20a%20quote.%20Here%20is%20what%20I%20have%20and%20my%20town:`;
+
     document.querySelectorAll('[data-config-href]').forEach((el) => {
       const raw = el.getAttribute('data-config-href');
       const parts = raw.split(':');
@@ -44,7 +47,11 @@
 
       const val = getNestedValue(config, path);
       if (val) {
-        el.setAttribute('href', `${prefix}:${val}`);
+        if (prefix === 'sms') {
+          el.setAttribute('href', `sms:${val}${defaultSmsQuery}`);
+        } else {
+          el.setAttribute('href', `${prefix}:${val}`);
+        }
       }
     });
 
@@ -119,6 +126,16 @@
         .map((item) => `<li class="take-item-row">• ${item}</li>`)
         .join('');
     }
+  }
+
+  function renderServiceAreas() {
+    const areas = window.SITE_CONFIG.company && window.SITE_CONFIG.company.serviceAreas;
+    const container = document.getElementById('service-areas-grid');
+    if (!container || !areas || !areas.length) return;
+
+    container.innerHTML = areas
+      .map((town) => `<div class="area-badge">${town}</div>`)
+      .join('');
   }
 
   function renderFAQSection() {
