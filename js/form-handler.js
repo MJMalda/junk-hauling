@@ -38,7 +38,7 @@
   function configureFormAction() {
     if (!elements.form || !window.SITE_CONFIG) return;
     const config = window.SITE_CONFIG;
-    const email = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'RocJunkRemoval@proton.me';
+    const email = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'f13f4498a5103e0f70db326088276b1f';
     elements.form.action = `https://formsubmit.co/${email}`;
   }
 
@@ -160,7 +160,7 @@
       setSubmittingState(true);
 
       const config = window.SITE_CONFIG || {};
-      const destinationEmail = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'RocJunkRemoval@proton.me';
+      const destinationEmail = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'f13f4498a5103e0f70db326088276b1f';
       const subject = (config.form && config.form.notificationSubject) || 'New Junk Removal Quote Request - Junk Removal Bros';
       const endpoint = `https://formsubmit.co/${destinationEmail}`;
 
