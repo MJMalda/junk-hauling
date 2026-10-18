@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * ROCHESTER HAULING BROTHERS - MAIN CONFIGURATION FILE
+ * JUNK REMOVAL BROS - MAIN CONFIGURATION FILE
  * =============================================================================
  * 
  * Edit this file to customize business name, contact info, pricing, and text.
@@ -13,17 +13,17 @@ const SITE_CONFIG = {
   // 1. BUSINESS & CONTACT INFORMATION
   // ---------------------------------------------------------------------------
   company: {
-    name: "Rochester Hauling Brothers",
+    name: "Junk Removal Bros",
     tagline: "Residential & Commercial Junk Removal in Rochester, NY",
-    shortDescription: "Family-owned and operated. We provide upfront estimates, handle all heavy lifting, and offer evening and weekend pickups throughout Monroe County.",
+    shortDescription: "Family-owned and operated. Text us a photo for a fast quote, or use our estimator below. We handle all heavy lifting and offer evening & weekend pickups throughout Monroe County.",
 
     // Contact Info
-    phone: "(585) 555-0199",
-    phoneRaw: "5855550199",
-    smsNumber: "5855550199",
+    phone: "205-205-7572",
+    phoneRaw: "2052057572",
+    smsNumber: "2052057572",
 
     // YOUR ACTUAL EMAIL (This is where FormSubmit will send all quotes & photos!)
-    email: "rochesterhaulbros@gmail.com",
+    email: "RocJunkRemoval@proton.me",
 
     // Service Area & Hours
     cityState: "Rochester, NY",
@@ -33,10 +33,10 @@ const SITE_CONFIG = {
     heroActionImage: "assets/images/action_shot.jpg",
 
     trustPoints: [
-      "Family-Owned & Operated",
-      "Evening & Weekend Appointments",
-      "Upfront Estimates",
-      "Careful With Walls & Floors"
+      "Text Photos for Fast Quotes",
+      "5% Senior, Military & Community Discount",
+      "Evening & Weekend Pickups",
+      "Upfront Pricing"
     ]
   },
 
@@ -47,8 +47,8 @@ const SITE_CONFIG = {
     title: "About Our Business",
     subtitle: "Locally owned and operated in Greater Rochester.",
     paragraphs: [
-      "We are two brothers who grew up in the Rochester area. We started this hauling business to provide homeowners and local businesses with a reliable, straightforward alternative to large national franchises.",
-      "When you schedule a pickup with us, you work directly with the owners. We arrive on time, confirm the price before touching anything, and take care of the entire loading process from start to finish.",
+      "We are two brothers who grew up in the Rochester area. We started this junk removal business to provide homeowners and local businesses with a reliable, straightforward alternative to large national franchises.",
+      "When you schedule a pickup with us, you work directly with the owners. We arrive on time, confirm the price before touching anything, and take care of the entire loading and removal process from start to finish.",
       "Because many of our customers work during normal business hours, we provide flexible evening appointments after 5:00 PM and weekend pickups at no extra charge."
     ],
     brother1: {
@@ -68,37 +68,29 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   pricing: {
     minimumJobPrice: 75,
+    discountPercent: 5,
+    discountDescription: "5% Discount for Senior Citizens, Military, First Responders, Social Services & Education Workers",
+    disclaimer: "Note: Online estimates are a ballpark range. Prices may vary pending mileage and the condition/weight of items—text or call 205-205-7572 for more details.",
 
     terrainModifiers: [
       {
-        id: "ground_floor",
-        name: "Ground Floor / Garage / Driveway",
-        description: "Standard ground-level access",
-        fee: 0,
-        isDefault: true
-      },
-      {
         id: "stairs_1_flight",
         name: "1 Flight of Stairs",
-        description: "Basement or second-floor access",
         fee: 20
       },
       {
         id: "stairs_2_flights",
         name: "2+ Flights of Stairs",
-        description: "Multi-story apartment or attic access",
         fee: 40
       },
       {
         id: "sharp_corners",
-        name: "Tight Hallways / Sharp Turns",
-        description: "Requires careful maneuvering or door removal",
+        name: "Tight Hallways / Turns",
         fee: 25
       },
       {
         id: "long_carry",
         name: "Long Carry (>100 ft)",
-        description: "Extended distance from home to truck",
         fee: 20
       }
     ]
@@ -158,7 +150,7 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   whatWeTake: [
     "Household furniture (couches, mattresses, dressers, tables)",
-    "Major appliances (refrigerators, washers, dryers, stoves)",
+    "Major appliances (refrigerators, washers, dryers, stoves — disconnected)",
     "Televisions, electronics, and small appliances",
     "Attic, basement, and garage cleanouts",
     "Yard debris, branches, and outdoor equipment",
@@ -167,10 +159,11 @@ const SITE_CONFIG = {
   ],
 
   whatWeDontTake: [
-    "Wet paint, stains, and chemical solvents",
+    "Wet paint, stains, and chemical solvents (dried paint cans are OK)",
     "Motor oil, gasoline, and hazardous automotive fluids",
     "Asbestos, medical waste, and biohazards",
     "Pressurized gas or propane tanks",
+    "Items with active bed bug or severe pest infestations",
     "Explosives and hazardous industrial materials"
   ],
 
@@ -179,24 +172,28 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   faqs: [
     {
+      question: "What forms of payment do you accept, and do you provide receipts?",
+      answer: "We accept Visa, Mastercard, Tap to Pay, Apple Pay, Google Pay, Venmo, and Cash once the job is finished. We can send digital receipts immediately via text or email."
+    },
+    {
+      question: "Do you offer any discounts?",
+      answer: "Yes! We offer a 5% discount for senior citizens, military & veterans, first responders, social services workers, and education workers. Just let us know when you text, call, or book."
+    },
+    {
+      question: "How does the pricing estimate work?",
+      answer: "Our online calculator provides an estimated price range based on standard items and access conditions. Prices can change pending mileage and the condition or weight of items—text or call 205-205-7572 for more information or a firm quote. We always confirm the exact price on-site before lifting anything."
+    },
+    {
       question: "Do you offer evening and weekend pickups?",
       answer: "Yes. We know taking time off work is inconvenient, so we schedule evening appointments (after 5:00 PM) as well as Saturday and Sunday pickups at standard rates."
     },
     {
-      question: "How does the pricing estimate work?",
-      answer: "Our online calculator provides an estimated price range based on the items you select and the access conditions (such as stairs). When we arrive on site, we confirm the exact price before starting any work."
-    },
-    {
-      question: "Do items need to be moved to the curb or driveway?",
-      answer: "No. We handle removal directly from where items are located, including basements, attics, and upstairs rooms. If you choose to stage items outside beforehand, let us know for our base ground-level rate."
+      question: "Do items need to be moved to the curb or disconnected beforehand?",
+      answer: "No need to move anything to the curb—we remove items right from basements, upstairs rooms, or garages. For major appliances (washers, dryers, stoves, fridges with water lines), please have water, gas, and hardwired electrical lines disconnected prior to arrival."
     },
     {
       question: "How quickly can you schedule a pickup?",
-      answer: "We typically have same-day or next-day availability across Monroe County. You can submit a request online or call us directly to check current availability."
-    },
-    {
-      question: "What forms of payment do you accept?",
-      answer: "We accept credit/debit cards, cash, check, Venmo, Zelle, and Apple Pay once the job is finished."
+      answer: "We typically have same-day or next-day availability across Monroe County. Just text us a photo at 205-205-7572, call, or submit a request online to check availability."
     }
   ],
 
@@ -205,9 +202,10 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   form: {
     service: "formsubmit",
-    // Put the destination email address where you want to receive quotes and photos:
-    destinationEmail: "ca606fed5293c6697a97b74df5efc509",
-    notificationSubject: "New Junk Removal Quote Request - Rochester Hauling Brothers"
+    // Put the destination email address (or FormSubmit activation hash) where you want to receive quotes and photos.
+    // If left equal to company.email, changing company.email above updates both automatically.
+    destinationEmail: "RocJunkRemoval@proton.me",
+    notificationSubject: "New Junk Removal Quote Request - Junk Removal Bros"
   }
 };
 

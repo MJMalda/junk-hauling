@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * ROCHESTER HAULING BROTHERS - MAIN APPLICATION
+ * JUNK REMOVAL BROS - MAIN APPLICATION
  * =============================================================================
  */
 
@@ -25,7 +25,7 @@
     const config = window.SITE_CONFIG;
 
     if (config.company && config.company.name) {
-      document.title = `${config.company.name} | Junk Removal & Hauling in Rochester, NY`;
+      document.title = `${config.company.name} | Junk Removal in Rochester, NY`;
     }
 
     document.querySelectorAll('[data-config]').forEach((el) => {

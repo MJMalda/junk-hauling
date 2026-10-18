@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * ROCHESTER HAULING BROTHERS - FORM & PHOTO HANDLER (FORMSUBMIT.CO)
+ * JUNK REMOVAL BROS - FORM & PHOTO HANDLER (FORMSUBMIT.CO)
  * =============================================================================
  * Delivers full quote requests and photo attachments directly to your email
  * address for 100% free with clean inline confirmation messages.
@@ -38,7 +38,7 @@
   function configureFormAction() {
     if (!elements.form || !window.SITE_CONFIG) return;
     const config = window.SITE_CONFIG;
-    const email = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'rochesterhaulbros@gmail.com';
+    const email = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'RocJunkRemoval@proton.me';
     elements.form.action = `https://formsubmit.co/${email}`;
   }
 
@@ -160,15 +160,16 @@
       setSubmittingState(true);
 
       const config = window.SITE_CONFIG || {};
-      const destinationEmail = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'rochesterhaulbros@gmail.com';
+      const destinationEmail = (config.form && config.form.destinationEmail) || (config.company && config.company.email) || 'RocJunkRemoval@proton.me';
+      const subject = (config.form && config.form.notificationSubject) || 'New Junk Removal Quote Request - Junk Removal Bros';
       const endpoint = `https://formsubmit.co/${destinationEmail}`;
 
       const formData = new FormData(elements.form);
-      formData.set('_subject', 'New Junk Removal Quote Request - Rochester Hauling Brothers');
+      formData.set('_subject', subject);
       formData.set('_template', 'table');
       formData.set('_captcha', 'false');
       
-      // Explicitly tell FormSubmit the full page URL so it never truncates /junk-hauling/ in the email
+      // Explicitly pass the full page URL to FormSubmit
       formData.set('_url', window.location.href);
       formData.set('_next', window.location.href);
 
