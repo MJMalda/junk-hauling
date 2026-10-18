@@ -28,9 +28,9 @@ const SITE_CONFIG = {
     shortDescription: "Family-owned and operated. Text us a photo for a fast quote, or use our estimator below. We handle all heavy lifting and offer evening & weekend pickups throughout Monroe County.",
 
     // Contact Info
-    phone: "205-205-7572",
-    phoneRaw: "12052057572",
-    smsNumber: "12052057572",
+    phone: "585-699-4762",
+    phoneRaw: "15856994762",
+    smsNumber: "15856994762",
     smsDefaultBody: "Hi Junk Removal Brothers! I'd like a quote. Here is what I have and my town:",
 
     // YOUR ACTUAL EMAIL (This is where FormSubmit will send all quotes & photos!)
@@ -193,7 +193,7 @@ const SITE_CONFIG = {
     },
     {
       question: "How does the pricing estimate work?",
-      answer: "Our online calculator provides an estimated price range based on standard items and access conditions. Prices can change pending mileage and the condition or weight of items—text or call 205-205-7572 for more information or a firm quote. We always confirm the exact price on-site before lifting anything."
+      answer: "Our online calculator provides an estimated price range based on standard items and access conditions. Prices can change pending mileage and the condition or weight of items—text or call 585-699-4762 for more information or a firm quote. We always confirm the exact price on-site before lifting anything."
     },
     {
       question: "Do you offer evening and weekend pickups?",
@@ -205,7 +205,7 @@ const SITE_CONFIG = {
     },
     {
       question: "How quickly can you schedule a pickup?",
-      answer: "We typically have same-day or next-day availability across Monroe County. Just text us a photo at 205-205-7572, call, or submit a request online to check availability."
+      answer: "We typically have same-day or next-day availability across Monroe County. Just text us a photo at 585-699-4762, call, or submit a request online to check availability."
     }
   ],
 
