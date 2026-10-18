@@ -202,9 +202,8 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   form: {
     service: "formsubmit",
-    // Put the destination email address (or FormSubmit activation hash) where you want to receive quotes and photos.
-    // If left equal to company.email, changing company.email above updates both automatically.
-    destinationEmail: "RocJunkRemoval@proton.me",
+    // Using your FormSubmit activation code keeps your raw email address hidden from form-scraping bots:
+    destinationEmail: "f13f4498a5103e0f70db326088276b1f",
     notificationSubject: "New Junk Removal Quote Request - Junk Removal Bros"
   }
 };
