@@ -13,6 +13,7 @@
       return;
     }
 
+    applyThemeColors();
     hydrateConfigValues();
     renderTrustPoints();
     renderAboutSection();
@@ -20,6 +21,16 @@
     renderServiceAreas();
     renderFAQSection();
     bindFAQAccordion();
+  }
+
+  function applyThemeColors() {
+    const theme = window.SITE_CONFIG.theme;
+    if (!theme) return;
+    const root = document.documentElement;
+    if (theme.primaryColor) root.style.setProperty('--brand-primary', theme.primaryColor);
+    if (theme.secondaryColor) root.style.setProperty('--brand-secondary', theme.secondaryColor);
+    if (theme.darkBg) root.style.setProperty('--brand-dark', theme.darkBg);
+    if (theme.lightBg) root.style.setProperty('--brand-light-bg', theme.lightBg);
   }
 
   function hydrateConfigValues() {
@@ -96,17 +107,6 @@
     if (brother1Img && aboutUs.brother1 && aboutUs.brother1.image) {
       brother1Img.src = aboutUs.brother1.image;
       brother1Img.alt = `${aboutUs.brother1.name}`;
-    }
-
-    const brother2Name = document.getElementById('brother2-name');
-    const brother2Role = document.getElementById('brother2-role');
-    const brother2Img = document.getElementById('brother2-img');
-
-    if (brother2Name && aboutUs.brother2) brother2Name.textContent = aboutUs.brother2.name;
-    if (brother2Role && aboutUs.brother2) brother2Role.textContent = aboutUs.brother2.role;
-    if (brother2Img && aboutUs.brother2 && aboutUs.brother2.image) {
-      brother2Img.src = aboutUs.brother2.image;
-      brother2Img.alt = `${aboutUs.brother2.name}`;
     }
   }
 

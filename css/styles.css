@@ -1,30 +1,41 @@
 /* ==========================================================================
-   JUNK REMOVAL BROTHERS - GREEN (#176B45), CHARCOAL/BLACK & WHITE THEME
+   JUNK REMOVAL BROTHERS - MASTER COLOR THEME
+   Change --brand-primary & --brand-secondary here (or in config.js -> theme)
+   to update colors across the entire website!
    ========================================================================== */
 
 :root {
-  --color-slate-950: #0f1110;
-  --color-slate-900: #181a19;
-  --color-slate-800: #262927;
-  --color-slate-700: #373b38;
-  --color-slate-600: #4b504d;
-  --color-slate-500: #646a66;
-  --color-slate-400: #9ca39f;
-  --color-slate-300: #d1d5d2;
-  --color-slate-200: #e5e7e6;
-  --color-slate-100: #f3f4f3;
-  --color-slate-50: #f6fbf8;
+  /* MASTER THEME COLORS */
+  --brand-primary: #8059A8;
+  --brand-secondary: #80A859;
+  --brand-dark: #141218;
+  --brand-light-bg: #f8f7fa;
+
+  /* NEUTRALS */
+  --color-slate-950: var(--brand-dark);
+  --color-slate-900: color-mix(in srgb, var(--brand-dark) 90%, #ffffff);
+  --color-slate-800: #27252d;
+  --color-slate-700: #3a3742;
+  --color-slate-600: #524e5c;
+  --color-slate-500: #6b6675;
+  --color-slate-400: #9e99a8;
+  --color-slate-300: #d5d2dc;
+  --color-slate-200: #e7e5ec;
+  --color-slate-100: #f3f2f6;
+  --color-slate-50: var(--brand-light-bg);
   --color-white: #ffffff;
   
-  --color-blue-900: #115234;
-  --color-blue-800: #145e3c;
-  --color-blue-700: #176B45;
-  --color-blue-400: #34d399;
-  --color-blue-50: #ecfdf5;
+  /* DERIVED BRAND PALETTE (Auto-updates when you change --brand-primary / --brand-secondary) */
+  --color-blue-900: color-mix(in srgb, var(--brand-primary) 82%, #000000);
+  --color-blue-800: color-mix(in srgb, var(--brand-primary) 90%, #000000);
+  --color-blue-700: var(--brand-primary);
+  --color-blue-400: color-mix(in srgb, var(--brand-secondary) 82%, #ffffff);
+  --color-blue-50: color-mix(in srgb, var(--brand-primary) 10%, #ffffff);
+  --color-brand-border: color-mix(in srgb, var(--brand-primary) 24%, #ffffff);
   
-  --color-amber-600: #176B45;
-  --color-amber-500: #4ade80;
-  --color-emerald-700: #176B45;
+  --color-amber-600: var(--brand-secondary);
+  --color-amber-500: color-mix(in srgb, var(--brand-secondary) 85%, #ffffff);
+  --color-emerald-700: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
   --color-red-700: #dc2626;
 
   --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -100,8 +111,8 @@ button, input, select, textarea {
 
 .section-alt {
   background-color: var(--color-slate-50);
-  border-top: 1px solid #d1fae5;
-  border-bottom: 1px solid #d1fae5;
+  border-top: 1px solid var(--color-brand-border);
+  border-bottom: 1px solid var(--color-brand-border);
 }
 
 .section-header {
@@ -125,7 +136,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   BUTTONS (GREEN #176B45, CHARCOAL/BLACK & WHITE)
+   BUTTONS
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -154,14 +165,14 @@ button, input, select, textarea {
 }
 
 .btn-accent {
-  background-color: var(--color-blue-700);
+  background-color: var(--brand-secondary);
   color: var(--color-white);
-  border-color: var(--color-blue-700);
+  border-color: var(--brand-secondary);
 }
 
 .btn-accent:hover {
-  background-color: var(--color-blue-900);
-  border-color: var(--color-blue-900);
+  background-color: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
+  border-color: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
 }
 
 .btn-outline-white {
@@ -171,7 +182,7 @@ button, input, select, textarea {
 }
 
 .btn-outline-white:hover {
-  background-color: rgba(23, 107, 69, 0.35);
+  background-color: color-mix(in srgb, var(--brand-primary) 35%, transparent);
   border-color: var(--color-blue-400);
 }
 
@@ -316,9 +327,9 @@ button, input, select, textarea {
   align-items: center;
   background-image: linear-gradient(
       to right,
-      rgba(15, 17, 16, 0.92) 0%,
-      rgba(15, 17, 16, 0.8) 45%,
-      rgba(15, 17, 16, 0.5) 100%
+      rgba(20, 18, 24, 0.92) 0%,
+      rgba(20, 18, 24, 0.8) 45%,
+      rgba(20, 18, 24, 0.5) 100%
     ),
     url('../assets/images/action_shot.jpg');
   background-size: cover;
@@ -328,8 +339,8 @@ button, input, select, textarea {
 }
 
 .hero-box {
-  background: rgba(15, 17, 16, 0.92);
-  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: color-mix(in srgb, var(--brand-dark) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 55%, transparent);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   max-width: 620px;
@@ -361,7 +372,7 @@ button, input, select, textarea {
 
 .hero-description {
   font-size: 1rem;
-  color: #e5e7e6;
+  color: #e7e5ec;
   line-height: 1.6;
   margin-bottom: 1.75rem;
 }
@@ -382,13 +393,16 @@ button, input, select, textarea {
 }
 
 .trust-item {
-  font-size: 0.8rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--color-white);
-  background: rgba(23, 107, 69, 0.35);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(52, 211, 153, 0.45);
+  background: color-mix(in srgb, var(--brand-secondary) 28%, transparent);
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--brand-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* ==========================================================================
@@ -762,7 +776,7 @@ button, input, select, textarea {
 
 .sms-fast-banner {
   background: var(--color-blue-50);
-  border: 1px solid #a7f3d0;
+  border: 1px solid var(--color-brand-border);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   margin-bottom: 1.25rem;
@@ -957,7 +971,7 @@ button, input, select, textarea {
 
 .brother-photos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1.75rem;
 }
@@ -965,13 +979,14 @@ button, input, select, textarea {
 .brother-photo-card {
   background: var(--color-white);
   border: 1px solid var(--color-slate-200);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-subtle);
 }
 
 .brother-img-frame {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 16 / 10;
   background: var(--color-slate-100);
 }
 
@@ -979,23 +994,24 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .brother-caption {
-  padding: 0.75rem 0.5rem;
+  padding: 0.85rem 1rem;
   text-align: center;
 }
 
 .brother-name-val {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-slate-900);
 }
 
 .brother-role-val {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--color-slate-500);
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
 }
 
 .about-points-card {

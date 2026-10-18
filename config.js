@@ -10,6 +10,16 @@
 
 const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
+  // 0. WEBSITE COLOR THEME (CHANGE HEX CODES HERE TO UPDATE THE ENTIRE SITE)
+  // ---------------------------------------------------------------------------
+  theme: {
+    primaryColor: "#265933",   // Main brand color (buttons, links, borders, active chips)
+    secondaryColor: "#18324A", // Secondary accent color (hero callout, price display, badges)
+    darkBg: "#102333",         // Dark charcoal/black (hero card, estimator bar, footer)
+    lightBg: "#F4F7F3"         // Soft background tint for alternating sections
+  },
+
+  // ---------------------------------------------------------------------------
   // 1. BUSINESS & CONTACT INFORMATION
   // ---------------------------------------------------------------------------
   company: {
@@ -47,10 +57,7 @@ const SITE_CONFIG = {
     heroActionImage: "assets/images/action_shot.jpg",
 
     trustPoints: [
-      "Text Photos for Fast Quotes",
-      "5% Senior, Military & Community Discount",
-      "Evening & Weekend Pickups",
-      "Upfront Pricing"
+      "Evening & Weekend Pickups Available — Flexible Scheduling at No Extra Charge"
     ]
   },
 
@@ -59,21 +66,17 @@ const SITE_CONFIG = {
   // ---------------------------------------------------------------------------
   aboutUs: {
     title: "About Our Business",
-    subtitle: "Locally owned and operated in Greater Rochester.",
+    subtitle: "Locally Owned. Brother Operated. Direct & Dependable.",
     paragraphs: [
-      "We are two brothers who grew up in the Rochester area. We started this junk removal business to provide homeowners and local businesses with a reliable, straightforward alternative to large national franchises.",
-      "When you schedule a pickup with us, you work directly with the owners. We arrive on time, confirm the price before touching anything, and take care of the entire loading and removal process from start to finish.",
-      "Because many of our customers work during normal business hours, we provide flexible evening appointments after 5:00 PM and weekend pickups at no extra charge."
-    ],
+      "We are two brothers who made Rochester our home several years ago. When we founded Rochester Junk Removal Brothers, we wanted to build something straightforward: an honest, owner-operated service that makes clearing out clutter completely painless for our neighbors.",
+      "We aren't a bloated national franchise with call centers or hidden franchise fees. When you text, call, or request a quote, you're speaking directly with one of us from the first message until the job is done.",
+      "We know standard 9-to-5 pick-up windows don't work when you're balancing work and family. We offer flexible scheduling into evenings and weekends so you don't have to take time off to get rid of unwanted junk.",
+      "We're family guys—both married, each with a pair of cats at home—and we treat your space with the care, professionalism, and honesty we'd expect in our own.",
+      ],
     brother1: {
-      name: "Dave",
-      role: "Co-Owner & Operations",
+      name: "David & Michel",
+      role: "Owners and Operators",
       image: "assets/images/brother1.jpg"
-    },
-    brother2: {
-      name: "Mike",
-      role: "Co-Owner & Logistics",
-      image: "assets/images/brother2.jpg"
     }
   },
 
@@ -164,24 +167,16 @@ const SITE_CONFIG = {
   // 5. ACCEPTED VS PROHIBITED ITEMS
   // ---------------------------------------------------------------------------
   whatWeTake: [
-    "Household furniture (couches, mattresses, dressers, tables)",
-    "Pianos, organs, and heavy specialty items",
-    "Major appliances (refrigerators, washers, dryers, stoves — disconnected)",
-    "Televisions, electronics, and small appliances",
-    "Attic, basement, and garage cleanouts",
-    "Yard debris, branches, and outdoor equipment",
-    "Remodeling and construction debris (wood, drywall)",
-    "Exercise equipment and general household clutter"
+    "Furniture, couches, mattresses & pianos",
+    "Appliances (disconnected), TVs & electronics",
+    "Garage, basement, attic & estate cleanouts",
+    "Yard debris, exercise equipment & general household junk"
   ],
 
   whatWeDontTake: [
     "Appliances still connected to water, gas, or hardwired power (must be disconnected)",
-    "Wet paint, stains, and chemical solvents (dried paint cans are OK)",
-    "Motor oil, gasoline, and hazardous automotive fluids",
-    "Asbestos, medical waste, and biohazards",
-    "Pressurized gas or propane tanks",
-    "Items with active bed bug or severe pest infestations",
-    "Explosives and hazardous industrial materials"
+    "Wet paint, liquid chemicals, or motor oil (dried paint cans are OK)",
+    "Propane tanks, fuel & hazardous materials"
   ],
 
   // ---------------------------------------------------------------------------
