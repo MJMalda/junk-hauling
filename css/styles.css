@@ -331,7 +331,7 @@ button, input, select, textarea {
       rgba(20, 18, 24, 0.8) 45%,
       rgba(20, 18, 24, 0.5) 100%
     ),
-    url('../assets/images/action_shot.jpg');
+    url('../assets/images/action_shot.png');
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;

@@ -54,7 +54,7 @@ const SITE_CONFIG = {
     operatingHours: "Flexible Scheduling — Evening & Weekend Pickups Available",
 
     logo: "assets/images/Rochester Junk Removal Brothers Logo.png",
-    heroActionImage: "assets/images/action_shot.jpg",
+    heroActionImage: "assets/images/action_shot.png",
 
     trustPoints: [
       "Evening & Weekend Pickups Available — Flexible Scheduling at No Extra Charge"
@@ -76,7 +76,7 @@ const SITE_CONFIG = {
     brother1: {
       name: "David & Michel",
       role: "Owners and Operators",
-      image: "assets/images/brother1.jpg"
+      image: "assets/images/brother1.png"
     }
   },
 
@@ -133,8 +133,7 @@ const SITE_CONFIG = {
     {
       category: "Bedroom Items",
       items: [
-        { id: "mattress_boxspring", name: "Mattress + Boxspring Set", minPrice: 60, maxPrice: 90 },
-        { id: "mattress_only", name: "Mattress Only (Any Size)", minPrice: 45, maxPrice: 65 },
+        { id: "mattress_only", name: "Mattress (Bagged Only)", minPrice: 45, maxPrice: 65 },
         { id: "bed_frame", name: "Bed Frame / Headboard", minPrice: 35, maxPrice: 55 },
         { id: "dresser", name: "Dresser / Wardrobe", minPrice: 50, maxPrice: 85 },
         { id: "nightstand", name: "Nightstand", minPrice: 15, maxPrice: 30 }
@@ -144,9 +143,9 @@ const SITE_CONFIG = {
       category: "Appliances",
       items: [
         { id: "refrigerator", name: "Refrigerator / Freezer", minPrice: 75, maxPrice: 120 },
-        { id: "washer_dryer", name: "Washer or Dryer", minPrice: 55, maxPrice: 85 },
-        { id: "stove_oven", name: "Stove / Oven / Dishwasher", minPrice: 45, maxPrice: 75 },
-        { id: "air_conditioner", name: "Window A/C Unit", minPrice: 30, maxPrice: 50 },
+        { id: "washer_dryer", name: "Washer or Dryer", minPrice: 75, maxPrice: 100 },
+        { id: "stove_oven", name: "Stove / Oven / Dishwasher", minPrice: 75, maxPrice: 100 },
+        { id: "air_conditioner", name: "Window A/C Unit", minPrice: 55, maxPrice: 85 },
         { id: "exercise_equipment", name: "Treadmill / Exercise Equipment", minPrice: 65, maxPrice: 110 }
       ]
     },
