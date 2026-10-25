@@ -12,7 +12,7 @@ This site is built with a **Zero-Build, Single-Config architecture**: you can ed
    - One-tap quick-add chips for the most common items plus an instant-add dropdown menu and compact access-factor pills.
    - Pre-fills a direct text message with the customer's selected items and estimated range.
 2. **Text-First Lead Capture**:
-   - Prominent **Text Photos** buttons in the header, hero, price estimator, quote form, and mobile bar (`205-205-7572`).
+   - Prominent **Text Photos** buttons in the header, hero, price estimator, quote form, and mobile bar (`585-699-4762`).
 3. **Authentic Photography & Trust Elements**:
    - **Hero Action Shot**: High-resolution image of the two brothers in uniform carrying furniture to their clean removal truck.
    - **"Meet the Brothers" Portraits**: Authentic portraits of Brother 1 and Brother 2 in matching navy work shirts side-by-side.
@@ -46,7 +46,7 @@ junk-removal/
 Open **`config.js`** in any text editor:
 
 1. **Company Name**: Edit `company.name` (`"Junk Removal Brothers"`).
-2. **Phone & SMS**: Update `phone`, `phoneRaw`, and `smsNumber` (`"205-205-7572"` / `"2052057572"`).
+2. **Phone & SMS**: Update `phone`, `phoneRaw`, and `smsNumber` (`"585-699-4762"` / `"15856994762"`).
 3. **Email**: Update `company.email` and `form.destinationEmail` (`"RocJunkRemoval@proton.me"`).
 4. **Your Real Photos**:
    - Place your real smartphone/camera photos inside `assets/images/`.
