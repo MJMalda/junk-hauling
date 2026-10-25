@@ -6,22 +6,22 @@
 
 :root {
   /* MASTER THEME COLORS */
-  --brand-primary: #8059A8;
-  --brand-secondary: #80A859;
-  --brand-dark: #141218;
-  --brand-light-bg: #f8f7fa;
+  --brand-primary: #265933;
+  --brand-secondary: #18324A;
+  --brand-dark: #102333;
+  --brand-light-bg: #F4F7F3;
 
   /* NEUTRALS */
   --color-slate-950: var(--brand-dark);
   --color-slate-900: color-mix(in srgb, var(--brand-dark) 90%, #ffffff);
-  --color-slate-800: #27252d;
-  --color-slate-700: #3a3742;
-  --color-slate-600: #524e5c;
-  --color-slate-500: #6b6675;
-  --color-slate-400: #9e99a8;
-  --color-slate-300: #d5d2dc;
-  --color-slate-200: #e7e5ec;
-  --color-slate-100: #f3f2f6;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
   --color-slate-50: var(--brand-light-bg);
   --color-white: #ffffff;
   
@@ -29,13 +29,13 @@
   --color-blue-900: color-mix(in srgb, var(--brand-primary) 82%, #000000);
   --color-blue-800: color-mix(in srgb, var(--brand-primary) 90%, #000000);
   --color-blue-700: var(--brand-primary);
-  --color-blue-400: color-mix(in srgb, var(--brand-secondary) 82%, #ffffff);
+  --color-blue-400: color-mix(in srgb, var(--brand-primary) 45%, #ffffff);
   --color-blue-50: color-mix(in srgb, var(--brand-primary) 10%, #ffffff);
   --color-brand-border: color-mix(in srgb, var(--brand-primary) 24%, #ffffff);
   
-  --color-amber-600: var(--brand-secondary);
-  --color-amber-500: color-mix(in srgb, var(--brand-secondary) 85%, #ffffff);
-  --color-emerald-700: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
+  --color-amber-600: var(--brand-primary);
+  --color-amber-500: color-mix(in srgb, var(--brand-primary) 35%, #ffffff);
+  --color-emerald-700: var(--brand-primary);
   --color-red-700: #dc2626;
 
   --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -165,14 +165,14 @@ button, input, select, textarea {
 }
 
 .btn-accent {
-  background-color: var(--brand-secondary);
+  background-color: var(--brand-primary);
   color: var(--color-white);
-  border-color: var(--brand-secondary);
+  border-color: var(--brand-primary);
 }
 
 .btn-accent:hover {
-  background-color: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
-  border-color: color-mix(in srgb, var(--brand-secondary) 82%, #000000);
+  background-color: color-mix(in srgb, var(--brand-primary) 82%, #000000);
+  border-color: color-mix(in srgb, var(--brand-primary) 82%, #000000);
 }
 
 .btn-outline-white {
@@ -331,7 +331,7 @@ button, input, select, textarea {
       rgba(20, 18, 24, 0.8) 45%,
       rgba(20, 18, 24, 0.5) 100%
     ),
-    url('../assets/images/action_shot.png');
+    url('../assets/images/action_shot.jpg');
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;

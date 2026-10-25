@@ -54,7 +54,7 @@ const SITE_CONFIG = {
     operatingHours: "Flexible Scheduling — Evening & Weekend Pickups Available",
 
     logo: "assets/images/Rochester Junk Removal Brothers Logo.png",
-    heroActionImage: "assets/images/action_shot.png",
+    heroActionImage: "assets/images/action_shot.jpg",
 
     trustPoints: [
       "Evening & Weekend Pickups Available — Flexible Scheduling at No Extra Charge"
@@ -76,7 +76,7 @@ const SITE_CONFIG = {
     brother1: {
       name: "David & Michel",
       role: "Owners and Operators",
-      image: "assets/images/brother1.png"
+      image: "assets/images/brother1.jpg"
     }
   },
 
@@ -86,7 +86,7 @@ const SITE_CONFIG = {
   pricing: {
     minimumJobPrice: 75,
     discountPercent: 5,
-    discountDescription: "5% Discount for Senior Citizens, Military, First Responders, Social Services & Education Workers",
+    discountDescription: "Cash Discount Available • 5% Discount for Senior Citizens, Military, First Responders, Social Services & Education Workers",
     disclaimer: "Ballpark estimate assumes standard curbside or ground-floor access. Final quotes confirmed before lifting based on truck volume and material weight.",
 
     terrainModifiers: [
@@ -184,11 +184,11 @@ const SITE_CONFIG = {
   faqs: [
     {
       question: "What forms of payment do you accept, and do you provide receipts?",
-      answer: "We accept Visa, Mastercard, Tap to Pay, Apple Pay, Google Pay, Venmo, and Cash once the job is finished. We can send digital receipts immediately via text or email."
+      answer: "We accept Cash (cash discount available!), Visa, Mastercard, Tap to Pay, Apple Pay, Google Pay, and Venmo once the job is finished. We can send digital receipts immediately via text or email."
     },
     {
       question: "Do you offer any discounts?",
-      answer: "Yes! We offer a 5% discount for senior citizens, military & veterans, first responders, social services workers, and education workers. Just let us know when you text, call, or book."
+      answer: "Yes! We offer a cash discount when paying with cash, as well as a 5% discount for senior citizens, military & veterans, first responders, social services workers, and education workers. Just let us know when you text, call, or book."
     },
     {
       question: "How does the pricing estimate work?",
